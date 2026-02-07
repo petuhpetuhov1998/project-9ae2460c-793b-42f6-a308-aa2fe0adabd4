@@ -51,23 +51,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Contact Info */}
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                <MapPin className="w-4 h-4 text-primary" />
-              </div>
-              <span>г. Тюмень</span>
-            </div>
-            <a 
-              href="tel:+73452000000" 
-              className="flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors group"
-            >
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <Phone className="w-4 h-4 text-primary" />
-              </div>
-              +7 (3452) 00-00-00
-            </a>
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center">
             <LiquidButton 
               size="sm"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
