@@ -90,18 +90,12 @@ const Hero = () => {
           <div className="space-y-6">
             
             {/* Logo and brand */}
-            <div className="animate-slide-up flex items-center gap-4">
-              <img src={logo} alt="Мистер Мишка" className="w-14 h-14 object-contain" />
+            <div className="animate-slide-up flex items-center gap-5">
+              <img src={logo} alt="Мистер Мишка" className="w-20 h-20 md:w-24 md:h-24 object-contain" />
               <div>
-                <p className="font-monly font-bold text-foreground text-lg">Мистер Мишка</p>
-                <p className="text-sm text-muted-foreground">Частный детский сад</p>
+                <p className="font-monly font-bold text-foreground text-2xl md:text-3xl">Мистер Мишка</p>
+                <p className="text-base md:text-lg text-muted-foreground">Частный детский сад</p>
               </div>
-            </div>
-            
-            {/* Badge */}
-            <div className="animate-slide-up delay-100 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-accent/10 border border-amber-accent/20">
-              <Star className="w-4 h-4 text-amber-accent fill-amber-accent" />
-              <span className="text-sm font-medium text-amber-accent">Лучший сад Тюмени 2024</span>
             </div>
 
             {/* Heading */}
