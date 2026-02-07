@@ -315,3 +315,140 @@ export const ChildLightbulb = ({ className, size = 24 }: ChildIconProps) => (
     <path d="M12 7v3M10 9h4" stroke="currentColor" strokeWidth="1.3" />
   </IconWrapper>
 );
+
+// Giraffe - cute animal
+export const ChildGiraffe = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <ellipse cx="12" cy="6" rx="4" ry="3.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M9 3l-1-2M15 3l1-2" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="10" cy="5.5" r="0.6" fill="currentColor" />
+    <circle cx="14" cy="5.5" r="0.6" fill="currentColor" />
+    <path d="M10.5 7.5c0.6 0.5 2.4 0.5 3 0" stroke="currentColor" strokeWidth="1" />
+    <path d="M12 9.5v8" stroke="currentColor" strokeWidth="2" />
+    <circle cx="10" cy="12" r="0.8" fill="currentColor" opacity="0.5" />
+    <circle cx="14" cy="14" r="0.8" fill="currentColor" opacity="0.5" />
+    <path d="M8 21c2-3 1-4 4-4s2 1 4 4" stroke="currentColor" strokeWidth="1.5" />
+  </IconWrapper>
+);
+
+// Owl - wise bird
+export const ChildOwl = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <ellipse cx="12" cy="14" rx="7" ry="8" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M5 8l3 3M19 8l-3 3" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="9" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="15" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="9" cy="12" r="1" fill="currentColor" />
+    <circle cx="15" cy="12" r="1" fill="currentColor" />
+    <path d="M12 15l-1 2h2l-1-2" stroke="currentColor" strokeWidth="1.2" fill="currentColor" />
+    <path d="M8 19c1.5 0.8 6.5 0.8 8 0" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
+
+// Panda - cute bear
+export const ChildPanda = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="6" cy="7" r="3" stroke="currentColor" strokeWidth="1.3" fill="currentColor" />
+    <circle cx="18" cy="7" r="3" stroke="currentColor" strokeWidth="1.3" fill="currentColor" />
+    <ellipse cx="8.5" cy="11" rx="2.5" ry="2" fill="currentColor" />
+    <ellipse cx="15.5" cy="11" rx="2.5" ry="2" fill="currentColor" />
+    <circle cx="8" cy="10.5" r="0.8" fill="white" />
+    <circle cx="15" cy="10.5" r="0.8" fill="white" />
+    <ellipse cx="12" cy="15" rx="1.5" ry="1" fill="currentColor" />
+    <path d="M10 17c0.8 0.8 3.2 0.8 4 0" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
+
+// Hedgehog - cute spiky friend
+export const ChildHedgehog = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <ellipse cx="10" cy="15" rx="6" ry="5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M12 10l1-4M15 11l3-3M17 14l4-1M14 8l2-3M16 12l3-1" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="7" cy="14" r="0.6" fill="currentColor" />
+    <circle cx="10" cy="14" r="0.6" fill="currentColor" />
+    <ellipse cx="5" cy="16" rx="1" ry="0.7" fill="currentColor" />
+    <path d="M6 17.5c1.5 0.8 4 0.8 5.5 0" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
+
+// Fox - clever animal
+export const ChildFox = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M12 20c-5 0-8-3-8-7 0-3 2-6 4-8l4 4 4-4c2 2 4 5 4 8 0 4-3 7-8 7z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M4 5l4 3M20 5l-4 3" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="9" cy="12" r="1" fill="currentColor" />
+    <circle cx="15" cy="12" r="1" fill="currentColor" />
+    <ellipse cx="12" cy="15" rx="1.2" ry="0.8" fill="currentColor" />
+    <path d="M12 15.8v1.5M10 18c0.8 0.5 3.2 0.5 4 0" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
+
+// Bear - teddy bear
+export const ChildBear = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="6" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="18" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="9" cy="11" r="1" fill="currentColor" />
+    <circle cx="15" cy="11" r="1" fill="currentColor" />
+    <ellipse cx="12" cy="14.5" rx="2" ry="1.5" stroke="currentColor" strokeWidth="1.2" />
+    <ellipse cx="12" cy="14" rx="0.8" ry="0.5" fill="currentColor" />
+    <path d="M11 16c0.4 0.5 1.6 0.5 2 0" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
+
+// House / Home
+export const ChildHome = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M3 11l9-8 9 8" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M5 10v10h14V10" stroke="currentColor" strokeWidth="1.5" />
+    <rect x="9" y="14" width="6" height="6" stroke="currentColor" strokeWidth="1.3" />
+    <path d="M12 14v6" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
+
+// Clock / Time
+export const ChildClock = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M12 6v6l4 3" stroke="currentColor" strokeWidth="1.8" />
+    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+  </IconWrapper>
+);
+
+// Tree / Nature
+export const ChildTree = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M12 22v-8" stroke="currentColor" strokeWidth="2" />
+    <ellipse cx="12" cy="9" rx="7" ry="8" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="9" cy="8" r="1" fill="currentColor" opacity="0.3" />
+    <circle cx="14" cy="6" r="0.8" fill="currentColor" opacity="0.3" />
+    <circle cx="11" cy="11" r="1.2" fill="currentColor" opacity="0.3" />
+  </IconWrapper>
+);
+
+// Heart
+export const ChildHeart = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M12 20s-8-5-8-11c0-3 2-5 5-5 2 0 3 1.5 3 1.5s1-1.5 3-1.5c3 0 5 2 5 5 0 6-8 11-8 11z" stroke="currentColor" strokeWidth="1.8" fill="none" />
+  </IconWrapper>
+);
+
+// Shield / Safety
+export const ChildShield = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M12 3l8 4v5c0 5-4 9-8 10-4-1-8-5-8-10V7l8-4z" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.8" />
+  </IconWrapper>
+);
+
+// Food / Utensils
+export const ChildFood = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M6 3v18M6 3c0 3 2 5 2 8s-2 5-2 5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M18 3v7c0 2-1.5 3-3 3v8" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M18 3c0 2-1 4-3 4" stroke="currentColor" strokeWidth="1.3" />
+    <ellipse cx="12" cy="18" rx="3" ry="2" stroke="currentColor" strokeWidth="1.3" />
+  </IconWrapper>
+);
