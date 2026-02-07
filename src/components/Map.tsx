@@ -1,54 +1,35 @@
-import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-
-// Fix for default marker icon in React-Leaflet
-const customIcon = new L.Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
-
+// Simple OpenStreetMap embed - no external dependencies needed
 // Tyumen coordinates (replace with your actual address coordinates)
-const KINDERGARTEN_POSITION: [number, number] = [57.1522, 65.5272];
+const KINDERGARTEN_LAT = 57.1522;
+const KINDERGARTEN_LNG = 65.5272;
+const ZOOM = 16;
 
 const Map = () => {
-  useEffect(() => {
-    // Fix leaflet container sizing issues
-    window.dispatchEvent(new Event('resize'));
-  }, []);
+  const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${KINDERGARTEN_LNG - 0.01}%2C${KINDERGARTEN_LAT - 0.005}%2C${KINDERGARTEN_LNG + 0.01}%2C${KINDERGARTEN_LAT + 0.005}&layer=mapnik&marker=${KINDERGARTEN_LAT}%2C${KINDERGARTEN_LNG}`;
 
   return (
     <div className="relative w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-elevated border border-white/50">
-      <MapContainer
-        center={KINDERGARTEN_POSITION}
-        zoom={15}
-        scrollWheelZoom={false}
-        className="w-full h-full z-0"
-        style={{ borderRadius: 'inherit' }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={KINDERGARTEN_POSITION} icon={customIcon}>
-          <Popup>
-            <div className="text-center p-1">
-              <strong className="text-foreground">Мистер Мишка</strong>
-              <br />
-              <span className="text-muted-foreground text-sm">г. Тюмень, ул. Примерная, 123</span>
-            </div>
-          </Popup>
-        </Marker>
-      </MapContainer>
+      <iframe
+        title="Карта расположения детского сада Мистер Мишка"
+        src={mapUrl}
+        className="w-full h-full border-0"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+      />
       
-      {/* Overlay gradient for smooth integration */}
+      {/* Overlay for smooth integration */}
       <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-black/5" />
+      
+      {/* Link to full map */}
+      <a
+        href={`https://www.openstreetmap.org/?mlat=${KINDERGARTEN_LAT}&mlon=${KINDERGARTEN_LNG}#map=${ZOOM}/${KINDERGARTEN_LAT}/${KINDERGARTEN_LNG}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg text-xs font-medium text-foreground hover:bg-white transition-colors shadow-md"
+      >
+        Открыть карту →
+      </a>
     </div>
   );
 };
