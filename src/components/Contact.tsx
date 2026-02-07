@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { Send, Phone, MapPin, Clock, MessageCircle, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import ScrollReveal from './ScrollReveal';
+
+// Lazy load the map component
+const Map = lazy(() => import('./Map'));
 
 const Contact = () => {
   const { toast } = useToast();
@@ -214,6 +217,15 @@ const Contact = () => {
                   познакомиться с нашим садом, воспитателями и задать все интересующие вопросы!
                 </p>
               </div>
+
+              {/* Map */}
+              <Suspense fallback={
+                <div className="w-full h-[300px] md:h-[400px] rounded-2xl bg-muted/50 animate-pulse flex items-center justify-center">
+                  <span className="text-muted-foreground">Загрузка карты...</span>
+                </div>
+              }>
+                <Map />
+              </Suspense>
             </div>
           </ScrollReveal>
         </div>
