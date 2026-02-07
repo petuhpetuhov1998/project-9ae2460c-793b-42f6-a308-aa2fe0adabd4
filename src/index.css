@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 
+/* Monly Font Family */
+@font-face {
+  font-family: 'Monly';
+  src: url('/fonts/Monly-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monly';
+  src: url('/fonts/Monly-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -148,8 +165,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
+    font-family: 'Monly', 'Nunito', sans-serif;
+    font-weight: 700;
   }
 }
 

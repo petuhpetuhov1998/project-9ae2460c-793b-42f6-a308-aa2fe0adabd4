@@ -1,5 +1,5 @@
 import { Phone, MapPin, Clock, MessageCircle, Heart, ArrowUp, Sparkles } from 'lucide-react';
-import bearMascot from '@/assets/bear-mascot.png';
+import logo from '@/assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -56,10 +56,10 @@ const Footer = () => {
               <div className="flex items-center gap-3 mb-6">
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-sage/30 rounded-full blur-lg" />
-                  <img src={bearMascot} alt="Мистер Мишка" className="w-14 h-14 object-contain relative" />
+                  <img src={logo} alt="Мистер Мишка" className="w-14 h-14 object-contain relative" />
                 </div>
                 <div>
-                  <span className="font-extrabold text-xl block">Мистер Мишка</span>
+                  <span className="font-monly font-bold text-xl block">Мистер Мишка</span>
                   <span className="text-sm text-white/60">Детский сад</span>
                 </div>
               </div>

@@ -110,11 +110,11 @@ const Hero = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="animate-fade-slide-in delay-100">
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight">
+            <h1 className="animate-fade-slide-in delay-100 font-monly">
+              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 Детский сад
               </span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-primary via-sage to-primary bg-clip-text text-transparent">
                   «Мистер Мишка»
                 </span>
