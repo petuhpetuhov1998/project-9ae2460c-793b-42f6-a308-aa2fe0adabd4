@@ -67,12 +67,12 @@
     
     /* Playful colors for kids - на основе фирменных */
     --sky-light: 30 10% 90%;
-    --sky: 225 6% 84%;
+    --sky: 200 60% 75%;
     --pink-accent: 32 45% 51%;
     --pink-light: 32 35% 75%;
-    --amber-accent: 32 50% 45%;
+    --amber-accent: 45 80% 55%;
     --amber-light: 32 30% 80%;
-    --peach: 32 25% 85%;
+    --peach: 20 70% 85%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(30 10% 90%), hsl(225 6% 88%));
