@@ -1,66 +1,42 @@
 import React from "react";
-import { 
-  ArrowRight, 
-  Play, 
-  Heart, 
-  Star,
-  Shield,
-  Users,
-  Clock,
-  Award,
-  Sparkles,
-  Baby,
-  BookOpen,
-  Palette,
-  Music
-} from "lucide-react";
+import { MapPin, Clock, Users, Baby, Star, ArrowRight } from "lucide-react";
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import heroChild from '@/assets/hero-child.jpg';
-
-// Features for marquee
-const FEATURES = [
-  { name: "Развитие речи", icon: BookOpen },
-  { name: "Творчество", icon: Palette },
-  { name: "Музыка", icon: Music },
-  { name: "Монтессори", icon: Sparkles },
-  { name: "Безопасность", icon: Shield },
-  { name: "Забота", icon: Heart },
-];
-
-// Stats item component
-const StatItem = ({ value, label }: { value: string; label: string }) => (
-  <div className="text-center">
-    <div className="text-lg font-bold text-foreground">{value}</div>
-    <div className="text-xs text-muted-foreground">{label}</div>
-  </div>
-);
+import bearMascot from '@/assets/bear-mascot.png';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-cream via-background to-sand/30">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-cream to-peach/20">
       {/* Scoped animations */}
       <style>{`
         @keyframes fadeSlideIn {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
         @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        @keyframes pulse-soft {
+          0%, 100% { transform: scale(1); opacity: 0.6; }
+          50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
         .animate-fade-slide-in {
           animation: fadeSlideIn 0.8s ease-out forwards;
           opacity: 0;
         }
-        .animate-marquee-scroll {
-          animation: marquee 30s linear infinite;
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
         }
-        .animate-float-custom {
-          animation: float 3s ease-in-out infinite;
+        .animate-pulse-soft {
+          animation: pulse-soft 3s ease-in-out infinite;
+        }
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
         }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
@@ -69,186 +45,160 @@ const Hero = () => {
         .delay-500 { animation-delay: 0.5s; }
       `}</style>
 
-      {/* Background decorative elements */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `url(${heroChild})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'right center',
-          filter: 'blur(40px)',
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/95 to-cream/70" />
+      {/* Decorative background elements */}
+      <div className="absolute top-20 right-20 w-32 h-32 rounded-full border-4 border-sage/20 animate-pulse-soft" />
+      <div className="absolute top-40 right-40 w-16 h-16 rounded-full border-2 border-primary/20 animate-pulse-soft delay-200" />
+      <div className="absolute bottom-40 left-20 w-24 h-24 rounded-full border-3 border-peach/30 animate-pulse-soft delay-300" />
+      <div className="absolute top-1/3 left-10 w-8 h-8 rounded-full bg-sage/20 animate-float" />
+      <div className="absolute bottom-1/3 right-10 w-12 h-12 rounded-full bg-primary/10 animate-float delay-200" />
+      
+      {/* Soft gradient blobs */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-sky-100/50 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-peach/20 to-transparent rounded-full blur-3xl" />
 
-      {/* Decorative blobs */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-sage/20 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-peach/30 rounded-full blur-3xl" />
-
-      <div className="container mx-auto relative z-10 px-4 pt-28 pb-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-10rem)]">
+      <div className="container mx-auto relative z-10 px-4 pt-28 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Column - Content */}
           <div className="space-y-8">
             
-            {/* Badge */}
+            {/* Location badge */}
             <div className="animate-fade-slide-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-white/40 shadow-soft">
-                <div className="flex items-center gap-1">
-                  <Award className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-foreground">
-                    Лучший частный сад 2024
-                  </span>
-                  <span className="flex gap-0.5 ml-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-amber-accent text-amber-accent" />
-                    ))}
-                  </span>
-                </div>
+              <div className="inline-flex items-center gap-2 text-muted-foreground">
+                <MapPin className="w-5 h-5 text-primary" />
+                <span className="text-base">г. Тюмень</span>
               </div>
             </div>
 
-            {/* Heading */}
-            <h1 className="animate-fade-slide-in delay-100 font-monly">
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Детский сад
-              </span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-primary via-sage to-primary bg-clip-text text-transparent">
-                  «Мистер Мишка»
+            {/* Main Title */}
+            <div className="animate-fade-slide-in delay-100 space-y-2">
+              <h1 className="font-monly">
+                <span className="block text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight">
+                  Мистер Мишка
                 </span>
-              </span>
-              <span className="block text-2xl md:text-3xl lg:text-4xl font-bold text-muted-foreground mt-2">
-                с заботой о детях
-              </span>
-            </h1>
+                <span className="block text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mt-2">
+                  ЧАСТНЫЙ
+                </span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                  ДЕТСКИЙ САД
+                </span>
+              </h1>
+            </div>
 
-            {/* Description */}
-            <p className="animate-fade-slide-in delay-200 text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Создаём безопасную и развивающую среду, где каждый ребёнок 
-              раскрывает свой потенциал через игру, творчество и общение.
+            {/* Subtitle */}
+            <p className="animate-fade-slide-in delay-200 text-xl md:text-2xl text-muted-foreground max-w-md leading-relaxed">
+              с заботой о детях<br />
+              и родителях
             </p>
 
-            {/* CTA Buttons */}
-            <div className="animate-fade-slide-in delay-300 flex flex-wrap items-center gap-4">
+            {/* CTA Button */}
+            <div className="animate-fade-slide-in delay-300">
               <LiquidButton 
                 size="xl"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="shadow-lg hover:shadow-xl transition-shadow"
               >
                 Записаться на экскурсию
                 <ArrowRight className="w-5 h-5 ml-2" />
               </LiquidButton>
-              
-              <button className="group flex items-center gap-3 px-6 py-3 rounded-full bg-white/60 backdrop-blur-md border border-white/40 hover:bg-white/80 transition-all duration-300">
-                <span className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                  <Play className="w-4 h-4 text-primary fill-primary" />
-                </span>
-                <span className="text-foreground font-medium">Видеообзор</span>
-              </button>
             </div>
           </div>
 
-          {/* Right Column - Stats & Image */}
-          <div className="relative space-y-6">
+          {/* Right Column - Circular Image */}
+          <div className="relative flex justify-center lg:justify-end animate-fade-slide-in delay-200">
+            {/* Rotating ring decoration */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[380px] h-[380px] md:w-[450px] md:h-[450px] rounded-full border-2 border-dashed border-sage/30 animate-spin-slow" />
+            </div>
             
-            {/* Main Image with Glassmorphism overlay */}
-            <div className="animate-fade-slide-in delay-200 relative">
-              {/* Card Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-sage/20 to-primary/30 rounded-3xl blur-2xl opacity-60" />
-              
-              <div className="relative rounded-3xl overflow-hidden bg-white/40 backdrop-blur-xl border border-white/50 shadow-elevated p-6">
-                
-                {/* Image */}
-                <div className="relative mb-6">
+            {/* Main image container */}
+            <div className="relative">
+              {/* Outer ring */}
+              <div className="w-[320px] h-[320px] md:w-[400px] md:h-[400px] rounded-full p-2 bg-gradient-to-br from-primary via-amber-accent to-primary shadow-2xl">
+                {/* Inner image */}
+                <div className="w-full h-full rounded-full overflow-hidden bg-white">
                   <img 
                     src={heroChild} 
                     alt="Счастливый ребенок в детском саду" 
-                    className="w-full h-64 object-contain animate-float-custom"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-
-                {/* Stats Row */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-sage flex items-center justify-center">
-                      <Heart className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-2xl font-bold text-foreground">150+</p>
-                      <p className="text-sm text-muted-foreground">Выпускников</p>
-                    </div>
-                  </div>
-                  
-                  {/* Tag Pills */}
-                  <div className="flex gap-2">
-                    <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-700 text-xs font-medium">
-                      <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                      Набор открыт
-                    </span>
-                  </div>
-                </div>
-
-                {/* Progress Bar */}
-                <div className="mb-6">
-                  <div className="flex justify-between text-sm mb-2">
-                    <span className="text-muted-foreground">Довольные родители</span>
-                    <span className="text-foreground font-semibold">98%</span>
-                  </div>
-                  <div className="h-2 bg-muted/50 rounded-full overflow-hidden">
-                    <div className="h-full w-[98%] bg-gradient-to-r from-primary to-sage rounded-full" />
-                  </div>
-                </div>
-
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
-
-                {/* Mini Stats Grid */}
-                <div className="grid grid-cols-3 gap-4">
-                  <StatItem value="1.5-6" label="лет" />
-                  <StatItem value="12" label="детей в группе" />
-                  <StatItem value="5" label="воспитателей" />
-                </div>
               </div>
-            </div>
-
-            {/* Marquee Card */}
-            <div className="animate-fade-slide-in delay-400 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-card p-4 overflow-hidden">
-              <p className="text-xs text-muted-foreground mb-3 text-center font-medium uppercase tracking-wider">
-                Наши направления развития
-              </p>
               
-              <div className="relative overflow-hidden">
-                <div className="flex animate-marquee-scroll">
-                  {/* Triple list for seamless loop */}
-                  {[...FEATURES, ...FEATURES, ...FEATURES].map((feature, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 px-6 py-2 mx-2 rounded-full bg-white/60 border border-white/40 flex-shrink-0"
-                    >
-                      <feature.icon className="w-4 h-4 text-primary" />
-                      <span className="text-sm font-medium text-foreground whitespace-nowrap">
-                        {feature.name}
-                      </span>
-                    </div>
-                  ))}
+              {/* Floating star decoration */}
+              <div className="absolute -top-4 -right-4 animate-float">
+                <div className="flex items-center justify-center w-12 h-12 bg-amber-accent rounded-full shadow-lg">
+                  <Star className="w-6 h-6 text-white fill-white" />
                 </div>
               </div>
-            </div>
-
-            {/* Floating badges */}
-            <div className="absolute -left-4 top-1/4 animate-fade-slide-in delay-500">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 backdrop-blur-md border border-white/50 shadow-card">
-                <Shield className="w-4 h-4 text-sage" />
-                <span className="text-sm font-medium text-foreground">Безопасность</span>
+              
+              {/* Bear mascot */}
+              <div className="absolute -bottom-6 -left-6 animate-float delay-300">
+                <img 
+                  src={bearMascot} 
+                  alt="Мишка маскот" 
+                  className="w-20 h-20 object-contain drop-shadow-lg"
+                />
               </div>
             </div>
+          </div>
+        </div>
 
-            <div className="absolute -right-4 bottom-1/3 animate-fade-slide-in delay-500">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 backdrop-blur-md border border-white/50 shadow-card">
-                <Users className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-foreground">2 группы</span>
+        {/* Bottom Info Cards */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          
+          {/* Card 1 - Hours */}
+          <div className="animate-fade-slide-in delay-400">
+            <div className="relative bg-gradient-to-br from-sage/30 to-sage/10 backdrop-blur-sm rounded-3xl p-6 border border-sage/20 shadow-soft hover:shadow-card transition-shadow duration-300">
+              {/* Floating icon */}
+              <div className="absolute -top-3 -right-3">
+                <div className="w-10 h-10 bg-sage rounded-full flex items-center justify-center shadow-md">
+                  <Clock className="w-5 h-5 text-white" />
+                </div>
               </div>
+              
+              <p className="text-lg font-monly font-bold text-foreground">
+                с 7:30 до 18:00
+              </p>
+              <p className="text-muted-foreground mt-1">
+                по запросу 24/7
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 - Age */}
+          <div className="animate-fade-slide-in delay-500">
+            <div className="relative bg-gradient-to-br from-sky-200/50 to-sky-100/30 backdrop-blur-sm rounded-3xl p-6 border border-sky-200/30 shadow-soft hover:shadow-card transition-shadow duration-300">
+              {/* Floating icon */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <div className="flex items-center gap-1">
+                  <span className="text-2xl">⭐</span>
+                </div>
+              </div>
+              
+              <p className="text-lg font-monly font-bold text-foreground text-center">
+                Принимаем
+              </p>
+              <p className="text-muted-foreground mt-1 text-center">
+                с 1.5 лет
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3 - Group Size */}
+          <div className="animate-fade-slide-in delay-500" style={{ animationDelay: '0.6s' }}>
+            <div className="relative bg-gradient-to-br from-peach/40 to-peach/20 backdrop-blur-sm rounded-3xl p-6 border border-peach/30 shadow-soft hover:shadow-card transition-shadow duration-300">
+              {/* Floating decoration */}
+              <div className="absolute -top-3 -right-3">
+                <span className="text-2xl">🌸</span>
+              </div>
+              
+              <p className="text-lg font-monly font-bold text-foreground">
+                В группах
+              </p>
+              <p className="text-muted-foreground mt-1">
+                8-12 детей
+              </p>
             </div>
           </div>
         </div>
