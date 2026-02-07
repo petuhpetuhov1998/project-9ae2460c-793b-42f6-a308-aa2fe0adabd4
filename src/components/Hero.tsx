@@ -1,4 +1,4 @@
-import { RippleButton } from '@/components/ui/ripple-button';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import heroChild from '@/assets/hero-child.png';
 
 const Hero = () => {
@@ -77,13 +77,12 @@ const Hero = () => {
               <p className="text-foreground">
                 Запишитесь на <span className="font-bold">бесплатный</span> пробный день
               </p>
-              <RippleButton 
-                rippleColor="hsl(32 45% 70%)"
-                className="bg-sage hover:bg-sage-dark text-white px-10 py-4 text-base shadow-soft hover:shadow-card"
+              <LiquidButton 
+                size="xxl"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Записаться на пробный день
-              </RippleButton>
+              </LiquidButton>
             </div>
 
             {/* Bottom info cards */}
