@@ -452,3 +452,14 @@ export const ChildFood = ({ className, size = 24 }: ChildIconProps) => (
     <ellipse cx="12" cy="18" rx="3" ry="2" stroke="currentColor" strokeWidth="1.3" />
   </IconWrapper>
 );
+
+// Crown - birthday king/queen
+export const ChildCrown = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M3 18h18v2H3v-2z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M4 18l2-10 4 4 2-6 2 6 4-4 2 10" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <circle cx="6" cy="7" r="1.2" fill="currentColor" />
+    <circle cx="12" cy="5" r="1.2" fill="currentColor" />
+    <circle cx="18" cy="7" r="1.2" fill="currentColor" />
+  </IconWrapper>
+);
