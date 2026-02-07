@@ -27,7 +27,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-cream via-white to-peach/20">
+    <section className="relative min-h-screen overflow-hidden bg-white">
       {/* CSS Animations */}
       <style>{`
         @keyframes gentleFloat {
