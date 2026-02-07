@@ -116,7 +116,8 @@ const Hero = () => {
             {/* CTA buttons */}
             <div className="animate-slide-up delay-300 flex flex-wrap items-center gap-4">
               <LiquidButton 
-                size="xl"
+                size="xxl"
+                className="text-2xl md:text-3xl px-12 py-6"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 ЭКСКУРСИЯ
