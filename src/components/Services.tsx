@@ -204,14 +204,14 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Extra Classes */}
+        {/* Extra Classes - Wave Style */}
         <ScrollReveal animation="fade-up">
-          <div className="relative max-w-5xl mx-auto">
+          <div className="relative max-w-6xl mx-auto">
             {/* Glow */}
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-sage/10 to-primary/10 rounded-[2.5rem] blur-2xl" />
             
-            <div className="relative backdrop-blur-xl bg-white/50 rounded-3xl p-8 md:p-12 border border-white/50 shadow-elevated">
-              <div className="text-center mb-10">
+            <div className="relative backdrop-blur-xl bg-white/50 rounded-3xl p-8 md:p-12 border border-white/50 shadow-elevated overflow-hidden">
+              <div className="text-center mb-12">
                 <h3 className="text-2xl md:text-3xl font-monly font-bold text-foreground mb-3">
                   Дополнительные занятия
                 </h3>
@@ -220,21 +220,67 @@ const Services = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                {extraClasses.map((cls, index) => (
-                  <ScrollReveal key={cls.name} animation="scale" delay={index * 50}>
-                    <div className="group relative">
-                      <div className="backdrop-blur-sm bg-white/70 rounded-2xl p-5 text-center border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-2 hover:bg-white/90">
-                        {/* Icon */}
-                        <div className="flex justify-center mb-3 text-foreground group-hover:scale-125 transition-transform duration-300 group-hover:text-primary">
-                          <cls.Icon size={36} />
+              {/* Wave container */}
+              <div className="relative py-8">
+                {/* Curved dashed line - SVG path */}
+                <svg 
+                  className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full h-32 pointer-events-none hidden md:block"
+                  viewBox="0 0 1200 120"
+                  preserveAspectRatio="none"
+                >
+                  <path 
+                    d="M0,60 Q100,20 200,60 T400,60 T600,60 T800,60 T1000,60 T1200,60" 
+                    fill="none" 
+                    stroke="hsl(var(--foreground) / 0.15)" 
+                    strokeWidth="2" 
+                    strokeDasharray="8 6"
+                  />
+                </svg>
+                
+                {/* Icons in wave pattern */}
+                <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-6 md:gap-0">
+                  {extraClasses.map((cls, index) => {
+                    // Create wave effect with different vertical positions
+                    const waveOffsets = [0, -20, 10, -15, 5, -10];
+                    const offset = waveOffsets[index % waveOffsets.length];
+                    
+                    return (
+                      <ScrollReveal 
+                        key={cls.name} 
+                        animation="scale" 
+                        delay={index * 80}
+                        className="flex-1 min-w-[140px] md:min-w-0"
+                      >
+                        <div 
+                          className="group flex flex-col items-center"
+                          style={{ transform: `translateY(${offset}px)` }}
+                        >
+                          {/* Circle with icon */}
+                          <div className="relative">
+                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white border-2 border-border/30 shadow-soft flex items-center justify-center group-hover:shadow-card group-hover:border-primary/30 transition-all duration-300 group-hover:scale-110">
+                              <cls.Icon 
+                                size={36} 
+                                className="text-amber-accent group-hover:text-primary transition-colors duration-300" 
+                              />
+                            </div>
+                            {/* Subtle glow on hover */}
+                            <div className="absolute inset-0 rounded-full bg-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          </div>
+                          
+                          {/* Label */}
+                          <div className="mt-4 text-center">
+                            <p className="font-monly font-bold text-foreground text-sm md:text-base group-hover:text-primary transition-colors">
+                              {cls.name}
+                            </p>
+                            <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                              {cls.price}
+                            </p>
+                          </div>
                         </div>
-                        <p className="font-monly font-bold text-foreground mb-1">{cls.name}</p>
-                        <p className="text-sm text-muted-foreground">{cls.price}</p>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
+                      </ScrollReveal>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
