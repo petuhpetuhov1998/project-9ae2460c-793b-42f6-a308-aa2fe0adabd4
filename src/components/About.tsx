@@ -110,8 +110,11 @@ const About = () => {
   const { count: yearsCount, ref: yearsRef } = useCountUp(8);
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-white">
-      {/* Clean white background - no decorative elements */}
+    <section id="about" className="py-24 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cream via-sand/30 to-cream" />
+      <div className="absolute top-20 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-96 h-96 bg-sage/10 rounded-full blur-3xl" />
       
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
