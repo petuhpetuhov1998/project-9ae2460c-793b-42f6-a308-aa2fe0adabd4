@@ -65,6 +65,19 @@ export default {
           DEFAULT: "hsl(var(--brown))",
           light: "hsl(var(--brown-light))",
         },
+        sky: {
+          DEFAULT: "hsl(var(--sky))",
+          light: "hsl(var(--sky-light))",
+        },
+        "pink-accent": {
+          DEFAULT: "hsl(var(--pink-accent))",
+          light: "hsl(var(--pink-light))",
+        },
+        "amber-accent": {
+          DEFAULT: "hsl(var(--amber-accent))",
+          light: "hsl(var(--amber-light))",
+        },
+        peach: "hsl(var(--peach))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
