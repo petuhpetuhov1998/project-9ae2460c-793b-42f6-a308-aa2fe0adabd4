@@ -1,6 +1,7 @@
-import { Check, Clock, Star, Sparkles, Crown, Zap } from 'lucide-react';
+import { Clock, Star, Sparkles, Crown, Zap } from 'lucide-react';
 import { RippleButton } from '@/components/ui/ripple-button';
 import ScrollReveal from './ScrollReveal';
+import { Tiles } from '@/components/ui/tiles';
 
 const subscriptions = [
   {
@@ -145,10 +146,21 @@ const PricingCard = ({
 const Services = () => {
   return (
     <section id="services" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cream to-background" />
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-sage/5 rounded-full blur-3xl" />
+      {/* Tiles Background */}
+      <div className="absolute inset-0 z-0">
+        <Tiles
+          rows={50}
+          cols={20}
+          tileSize="lg"
+          className="w-full h-full opacity-60"
+          tileClassName="bg-transparent"
+        />
+      </div>
+      
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-background z-[1]" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl z-[1]" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-sage/5 rounded-full blur-3xl z-[1]" />
       
       <div className="container mx-auto relative z-10">
         <ScrollReveal animation="fade-up">
