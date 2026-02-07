@@ -1,4 +1,5 @@
 import { Home, Shield, Utensils, TreePine } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const features = [
   {
@@ -31,44 +32,46 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-sand/30">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="section-title mb-4">
-            Лучшие условия для{' '}
-            <span className="section-title-accent">здоровья малышей</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Мы создали идеальное пространство, где ваш ребёнок будет развиваться, 
-            учиться и находить новых друзей в безопасной и уютной атмосфере.
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-16">
+            <h2 className="section-title mb-4">
+              Лучшие условия для{' '}
+              <span className="section-title-accent">здоровья малышей</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Мы создали идеальное пространство, где ваш ребёнок будет развиваться, 
+              учиться и находить новых друзей в безопасной и уютной атмосфере.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
-            <div 
-              key={feature.title}
-              className="group bg-card rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className={`feature-icon mb-5 ${
-                feature.accent === 'sage' ? 'bg-sage/30' :
-                feature.accent === 'warm' ? 'bg-warm/30' :
-                feature.accent === 'accent' ? 'bg-accent/30' :
-                'bg-brown/30'
-              }`}>
-                <feature.icon className={`w-7 h-7 ${
-                  feature.accent === 'sage' ? 'text-sage-dark' :
-                  feature.accent === 'warm' ? 'text-warm' :
-                  feature.accent === 'accent' ? 'text-accent' :
-                  'text-brown'
-                }`} />
+            <ScrollReveal key={feature.title} animation="fade-up" delay={index * 100}>
+              <div 
+                className="group bg-card rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1 h-full"
+              >
+                <div className={`feature-icon mb-5 ${
+                  feature.accent === 'sage' ? 'bg-sage/30' :
+                  feature.accent === 'warm' ? 'bg-warm/30' :
+                  feature.accent === 'accent' ? 'bg-accent/30' :
+                  'bg-brown/30'
+                }`}>
+                  <feature.icon className={`w-7 h-7 ${
+                    feature.accent === 'sage' ? 'text-sage-dark' :
+                    feature.accent === 'warm' ? 'text-warm' :
+                    feature.accent === 'accent' ? 'text-accent' :
+                    'text-brown'
+                  }`} />
+                </div>
+                <h3 className="font-bold text-lg mb-3 text-foreground group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="font-bold text-lg mb-3 text-foreground group-hover:text-primary transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
