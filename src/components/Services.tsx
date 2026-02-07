@@ -1,6 +1,5 @@
 import { Check, Clock, Star, Sparkles, Crown, Zap } from 'lucide-react';
 import { RippleButton } from '@/components/ui/ripple-button';
-import { ShaderCanvas } from '@/components/ui/shader-canvas';
 import ScrollReveal from './ScrollReveal';
 
 const subscriptions = [
@@ -145,14 +144,11 @@ const PricingCard = ({
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 relative overflow-hidden min-h-screen">
-      {/* Animated Shader Background */}
-      <div className="absolute inset-0">
-        <ShaderCanvas />
-      </div>
-      
-      {/* Overlay gradient for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-transparent to-cream/40" />
+    <section id="services" className="py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cream to-background" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-sage/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto relative z-10">
         <ScrollReveal animation="fade-up">
