@@ -1,0 +1,197 @@
+import { useState } from 'react';
+import { Send, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+
+const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    childAge: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast({
+      title: "Заявка отправлена!",
+      description: "Мы свяжемся с вами в ближайшее время.",
+    });
+    
+    setFormData({ name: '', phone: '', childAge: '', message: '' });
+    setIsSubmitting(false);
+  };
+
+  return (
+    <section id="contact" className="py-20 bg-sand/30">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="section-title mb-4">
+            Запишитесь на{' '}
+            <span className="section-title-accent">экскурсию</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Оставьте заявку, и мы свяжемся с вами для записи на бесплатную экскурсию
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Contact Form */}
+          <div className="bg-card rounded-3xl p-8 shadow-card">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
+                  Ваше имя
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                  placeholder="Как к вам обращаться?"
+                  required
+                  maxLength={100}
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold text-foreground mb-2">
+                  Телефон
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                  placeholder="+7 (___) ___-__-__"
+                  required
+                  maxLength={20}
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="childAge" className="block text-sm font-semibold text-foreground mb-2">
+                  Возраст ребёнка
+                </label>
+                <input
+                  type="text"
+                  id="childAge"
+                  value={formData.childAge}
+                  onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                  placeholder="Например: 3 года"
+                  maxLength={50}
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
+                  Сообщение (необязательно)
+                </label>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
+                  rows={3}
+                  placeholder="Ваши вопросы или пожелания"
+                  maxLength={500}
+                />
+              </div>
+              
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-70"
+              >
+                {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
+                <Send className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-6">
+            <div className="bg-sage rounded-2xl p-6 text-white">
+              <h3 className="text-xl font-bold mb-4">Контактная информация</h3>
+              <div className="space-y-4">
+                <a href="tel:+73452000000" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-white/70">Телефон</p>
+                    <p className="font-semibold">+7 (3452) 00-00-00</p>
+                  </div>
+                </a>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-white/70">Адрес</p>
+                    <p className="font-semibold">г. Тюмень, ул. Примерная, 123</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-white/70">Режим работы</p>
+                    <p className="font-semibold">Пн-Пт: 7:30 – 18:00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="bg-card rounded-2xl p-6 shadow-soft">
+              <h3 className="font-bold text-foreground mb-4">Мы в социальных сетях</h3>
+              <div className="flex gap-3">
+                <a 
+                  href="https://t.me/mistermishka" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#0088cc] text-white px-4 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Telegram
+                </a>
+                <a 
+                  href="https://vk.com/mistermishka" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#4a76a8] text-white px-4 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.847 2.456 2.268 4.607 2.853 4.607.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/>
+                  </svg>
+                  ВКонтакте
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Note */}
+            <div className="bg-warm/10 border border-warm/30 rounded-2xl p-5">
+              <p className="text-sm text-foreground">
+                <span className="font-bold">💡 Совет:</span> Запишитесь на экскурсию, чтобы лично 
+                познакомиться с нашим садом, воспитателями и задать все интересующие вопросы!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
