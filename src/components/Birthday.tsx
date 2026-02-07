@@ -1,14 +1,25 @@
-import { Gift, Camera, Music, Cake, PartyPopper, Star, Sparkles } from 'lucide-react';
+import { Gift, Sparkles } from 'lucide-react';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import ScrollReveal from './ScrollReveal';
+import { 
+  ChildPartyPopper, 
+  ChildCake, 
+  ChildGamepad, 
+  ChildCamera, 
+  ChildGift, 
+  ChildSuperhero,
+  ChildBalloon,
+  ChildConfetti,
+  ChildStar
+} from '@/components/ui/child-icons';
 
 const birthdayFeatures = [
-  { icon: PartyPopper, text: 'Яркое тематическое оформление', emoji: '🎉' },
-  { icon: Cake, text: 'Торт и праздничный стол', emoji: '🎂' },
-  { icon: Music, text: 'Весёлые игры и конкурсы', emoji: '🎮' },
-  { icon: Camera, text: 'Профессиональная фотосессия', emoji: '📸' },
-  { icon: Gift, text: 'Подарки для именинника', emoji: '🎁' },
-  { icon: Star, text: 'Приглашение аниматоров', emoji: '🦸' },
+  { Icon: ChildPartyPopper, text: 'Яркое тематическое оформление' },
+  { Icon: ChildCake, text: 'Торт и праздничный стол' },
+  { Icon: ChildGamepad, text: 'Весёлые игры и конкурсы' },
+  { Icon: ChildCamera, text: 'Профессиональная фотосессия' },
+  { Icon: ChildGift, text: 'Подарки для именинника' },
+  { Icon: ChildSuperhero, text: 'Приглашение аниматоров' },
 ];
 
 const Birthday = () => {
@@ -20,9 +31,15 @@ const Birthday = () => {
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       
       {/* Floating decorations */}
-      <div className="absolute top-32 right-[15%] text-4xl animate-float">🎈</div>
-      <div className="absolute bottom-40 left-[10%] text-3xl animate-float-delayed">🎊</div>
-      <div className="absolute top-1/2 right-[8%] text-2xl animate-bounce-soft">⭐</div>
+      <div className="absolute top-32 right-[15%] text-primary/60 animate-float">
+        <ChildBalloon size={48} />
+      </div>
+      <div className="absolute bottom-40 left-[10%] text-sage/60 animate-float-delayed">
+        <ChildConfetti size={40} />
+      </div>
+      <div className="absolute top-1/2 right-[8%] text-amber-accent/70 animate-bounce-soft">
+        <ChildStar size={32} />
+      </div>
       
       <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -39,7 +56,7 @@ const Birthday = () => {
                 
                 <div className="relative text-center text-white">
                   <div className="w-24 h-24 mx-auto bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 animate-bounce-soft">
-                    <span className="text-5xl">🎂</span>
+                    <ChildCake size={56} />
                   </div>
                   <h3 className="text-3xl md:text-4xl font-extrabold mb-4">
                     Праздник для вашего малыша
@@ -60,7 +77,7 @@ const Birthday = () => {
           <ScrollReveal animation="fade-left" delay={150}>
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-white/40 shadow-soft mb-6">
-                <PartyPopper className="w-4 h-4 text-amber-accent" />
+                <ChildPartyPopper className="w-4 h-4 text-amber-accent" />
                 <span className="text-sm font-medium text-foreground">Праздники</span>
               </div>
               
@@ -79,8 +96,8 @@ const Birthday = () => {
                 {birthdayFeatures.map((feature, index) => (
                   <ScrollReveal key={feature.text} animation="fade-up" delay={index * 60}>
                     <div className="group flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-xl p-3 border border-white/50 hover:bg-white/80 transition-all duration-300 hover:-translate-y-1 shadow-soft">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-accent/20 to-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <span className="text-lg">{feature.emoji}</span>
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-accent/20 to-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform text-foreground">
+                        <feature.Icon size={22} />
                       </div>
                       <span className="text-foreground font-medium text-sm">{feature.text}</span>
                     </div>

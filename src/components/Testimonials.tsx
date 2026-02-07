@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import { ChildWoman, ChildWomanAlt, ChildMan, ChildWomanCurly } from '@/components/ui/child-icons';
 
 const testimonials = [
   {
     id: 1,
     name: 'Анна Петрова',
     role: 'Мама Миши, 4 года',
-    avatar: '👩',
+    AvatarIcon: ChildWoman,
     rating: 5,
     text: 'Мы безумно рады, что нашли «Мистер Мишка»! Сын каждое утро с радостью бежит в садик. Воспитатели — настоящие профессионалы, которые любят детей.',
   },
@@ -15,7 +16,7 @@ const testimonials = [
     id: 2,
     name: 'Елена Смирнова',
     role: 'Мама Софии, 3 года',
-    avatar: '👩‍🦰',
+    AvatarIcon: ChildWomanAlt,
     rating: 5,
     text: 'Прекрасный детский сад! Домашняя атмосфера, вкусное питание, отличные развивающие занятия. София научилась читать и считать за полгода!',
   },
@@ -23,7 +24,7 @@ const testimonials = [
     id: 3,
     name: 'Дмитрий Козлов',
     role: 'Папа Артёма, 5 лет',
-    avatar: '👨',
+    AvatarIcon: ChildMan,
     rating: 5,
     text: 'Очень довольны садиком! Видеонаблюдение и ежедневные фотоотчёты дают полное спокойствие. Артём подготовлен к школе на отлично.',
   },
@@ -31,7 +32,7 @@ const testimonials = [
     id: 4,
     name: 'Мария Иванова',
     role: 'Мама Алисы, 2 года',
-    avatar: '👩‍🦱',
+    AvatarIcon: ChildWomanCurly,
     rating: 5,
     text: 'Когда искали садик для младшей, не сомневались — только «Мистер Мишка». Адаптация прошла мягко, Алиса обожает воспитателей!',
   },
@@ -101,8 +102,11 @@ const Testimonials = () => {
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 {/* Avatar */}
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-sage/20 flex items-center justify-center text-4xl">
-                    {testimonials[currentIndex].avatar}
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-sage/20 flex items-center justify-center text-foreground">
+                    {(() => {
+                      const AvatarIcon = testimonials[currentIndex].AvatarIcon;
+                      return <AvatarIcon size={44} />;
+                    })()}
                   </div>
                 </div>
 

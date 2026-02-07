@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { HelpCircle, Calculator } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import { ChildHospital, ChildBeach } from '@/components/ui/child-icons';
 
 const faqs = [
   {
@@ -104,8 +105,8 @@ const FAQ = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <ScrollReveal animation="fade-right" delay={300}>
                     <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1 h-full">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500/20 to-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <span className="text-xl">🏥</span>
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500/20 to-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-foreground">
+                        <ChildHospital size={24} />
                       </div>
                       <h4 className="font-bold text-foreground mb-3">По болезни</h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
@@ -116,8 +117,8 @@ const FAQ = () => {
                   </ScrollReveal>
                   <ScrollReveal animation="fade-left" delay={400}>
                     <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1 h-full">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky/20 to-sage/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <span className="text-xl">🏖️</span>
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky/20 to-sage/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-foreground">
+                        <ChildBeach size={24} />
                       </div>
                       <h4 className="font-bold text-foreground mb-3">По отпуску</h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
