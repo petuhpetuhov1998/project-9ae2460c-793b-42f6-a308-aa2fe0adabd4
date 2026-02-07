@@ -1,4 +1,5 @@
 import { Sun, Coffee, Book, Apple, Moon, Utensils, TreePine, Music, Palette } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const scheduleItems = [
   { time: '7:30 – 8:30', activity: 'Приём детей, свободная игра', icon: Sun, color: 'warm' },
@@ -18,15 +19,17 @@ const Schedule = () => {
   return (
     <section id="schedule" className="py-20 bg-sand/30">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="section-title mb-4">
-            Распорядок{' '}
-            <span className="section-title-accent">дня</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Сбалансированный режим дня с чередованием активностей и отдыха
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-16">
+            <h2 className="section-title mb-4">
+              Распорядок{' '}
+              <span className="section-title-accent">дня</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Сбалансированный режим дня с чередованием активностей и отдыха
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="max-w-3xl mx-auto">
           <div className="relative">
@@ -34,36 +37,41 @@ const Schedule = () => {
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-border transform md:-translate-x-1/2" />
             
             {scheduleItems.map((item, index) => (
-              <div 
-                key={item.time}
-                className={`relative flex items-center gap-4 md:gap-8 mb-6 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+              <ScrollReveal 
+                key={item.time} 
+                animation={index % 2 === 0 ? 'fade-right' : 'fade-left'} 
+                delay={index * 50}
               >
-                {/* Time - Desktop */}
-                <div className={`hidden md:block w-1/2 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                  <span className="text-sm font-bold text-sage-dark">{item.time}</span>
-                </div>
-                
-                {/* Icon */}
-                <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
-                  item.color === 'sage' ? 'bg-sage' :
-                  item.color === 'warm' ? 'bg-warm' :
-                  item.color === 'accent' ? 'bg-accent' :
-                  item.color === 'primary' ? 'bg-primary' :
-                  'bg-muted'
-                }`}>
-                  <item.icon className="w-5 h-5 text-white" />
-                </div>
-                
-                {/* Content */}
-                <div className={`flex-1 md:w-1/2 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'}`}>
-                  <div className="bg-card rounded-2xl p-4 shadow-soft">
-                    <span className="text-sm font-bold text-sage-dark md:hidden">{item.time}</span>
-                    <p className="font-semibold text-foreground">{item.activity}</p>
+                <div 
+                  className={`relative flex items-center gap-4 md:gap-8 mb-6 ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                >
+                  {/* Time - Desktop */}
+                  <div className={`hidden md:block w-1/2 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                    <span className="text-sm font-bold text-sage-dark">{item.time}</span>
+                  </div>
+                  
+                  {/* Icon */}
+                  <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110 ${
+                    item.color === 'sage' ? 'bg-sage' :
+                    item.color === 'warm' ? 'bg-warm' :
+                    item.color === 'accent' ? 'bg-accent' :
+                    item.color === 'primary' ? 'bg-primary' :
+                    'bg-muted'
+                  }`}>
+                    <item.icon className="w-5 h-5 text-white" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className={`flex-1 md:w-1/2 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'}`}>
+                    <div className="bg-card rounded-2xl p-4 shadow-soft hover:shadow-card transition-all duration-300">
+                      <span className="text-sm font-bold text-sage-dark md:hidden">{item.time}</span>
+                      <p className="font-semibold text-foreground">{item.activity}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
