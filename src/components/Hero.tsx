@@ -6,7 +6,7 @@ import logo from '@/assets/logo.png';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-foreground">
+    <section className="relative min-h-screen overflow-hidden bg-white">
       {/* Animations */}
       <style>{`
         @keyframes fadeUp {
@@ -55,33 +55,9 @@ const Hero = () => {
         .delay-600 { animation-delay: 0.6s; }
       `}</style>
 
-      {/* Background Image Layer */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: `url(${heroChild})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'blur(80px) saturate(1.2)',
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90" />
-      </div>
-
-      {/* Decorative grid */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sage/15 rounded-full blur-[120px]" />
-      <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-peach/20 rounded-full blur-[80px]" />
+      {/* Subtle decorative elements */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sage/10 rounded-full blur-[120px]" />
 
       <div className="container mx-auto relative z-10 px-4 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-12rem)]">
@@ -92,24 +68,21 @@ const Hero = () => {
             {/* Logo + Badge */}
             <div className="animate-fade-up flex items-center gap-4">
               <img src={logo} alt="Мистер Мишка" className="w-16 h-16 object-contain" />
-              <div className="h-8 w-px bg-white/20" />
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10">
+              <div className="h-8 w-px bg-border" />
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 backdrop-blur-md border border-border">
                 <Sparkles className="w-4 h-4 text-amber-accent" />
-                <span className="text-sm font-medium text-white/80">Лучший сад Тюмени 2024</span>
+                <span className="text-sm font-medium text-muted-foreground">Лучший сад Тюмени 2024</span>
               </div>
             </div>
 
             {/* Main Heading */}
             <div className="animate-fade-up delay-100 space-y-4">
               <h1 className="font-monly leading-[0.9]">
-                <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white">
-                  Мистер
-                </span>
-                <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-primary via-sage to-primary bg-clip-text text-transparent animate-shimmer">
-                  Мишка
+                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">
+                  Мистер Мишка
                 </span>
               </h1>
-              <p className="text-2xl md:text-3xl text-white/60 font-light max-w-lg">
+              <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-lg">
                 Частный детский сад, где каждый день — приключение
               </p>
             </div>
@@ -123,10 +96,10 @@ const Hero = () => {
               ].map((item, i) => (
                 <div 
                   key={item.text}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors cursor-default"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-muted/50 border border-border hover:bg-muted transition-colors cursor-default"
                 >
                   <item.icon className="w-4 h-4 text-sage" />
-                  <span className="text-sm font-medium text-white/70">{item.text}</span>
+                  <span className="text-sm font-medium text-muted-foreground">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -141,24 +114,24 @@ const Hero = () => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </LiquidButton>
               
-              <button className="group flex items-center gap-3 px-6 py-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <span className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <Play className="w-5 h-5 text-white fill-white" />
+              <button className="group flex items-center gap-3 px-6 py-4 rounded-full bg-muted/50 border border-border hover:bg-muted transition-all duration-300">
+                <span className="w-12 h-12 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Play className="w-5 h-5 text-foreground fill-foreground" />
                 </span>
-                <span className="text-white font-medium">Смотреть видео</span>
+                <span className="text-foreground font-medium">Смотреть видео</span>
               </button>
             </div>
 
             {/* Stats Row */}
-            <div className="animate-fade-up delay-400 flex items-center gap-8 pt-8 border-t border-white/10">
+            <div className="animate-fade-up delay-400 flex items-center gap-8 pt-8 border-t border-border">
               {[
                 { value: '150+', label: 'Выпускников' },
                 { value: '98%', label: 'Довольных родителей' },
                 { value: '7', label: 'Лет опыта' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="text-3xl font-monly font-bold text-white">{stat.value}</p>
-                  <p className="text-sm text-white/50">{stat.label}</p>
+                  <p className="text-3xl font-monly font-bold text-foreground">{stat.value}</p>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -166,28 +139,6 @@ const Hero = () => {
 
           {/* Right Column - Image Composition */}
           <div className="relative flex items-center justify-center animate-scale-in delay-200">
-            
-            {/* Orbiting elements container */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-[360px] h-[360px] md:w-[420px] md:h-[420px]">
-                {/* Orbiting icons */}
-                <div className="absolute inset-0 animate-orbit">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-sage rounded-2xl flex items-center justify-center shadow-2xl">
-                    <Heart className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                <div className="absolute inset-0 animate-orbit" style={{ animationDelay: '-6.67s' }}>
-                  <div className="w-12 h-12 bg-gradient-to-br from-sage to-primary rounded-2xl flex items-center justify-center shadow-2xl">
-                    <Sparkles className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                <div className="absolute inset-0 animate-orbit" style={{ animationDelay: '-13.33s' }}>
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-accent to-primary rounded-2xl flex items-center justify-center shadow-2xl">
-                    <Shield className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Main Image */}
             <div className="relative animate-float">
@@ -233,8 +184,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Bottom gradient fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent" />
     </section>
   );
 };
