@@ -125,8 +125,7 @@ const Hero = () => {
                 size="xl"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Записаться на экскурсию
-                <ArrowRight className="w-5 h-5 ml-2" />
+                ЭКСКУРСИЯ
               </LiquidButton>
               
               <button 
