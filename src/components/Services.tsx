@@ -221,27 +221,27 @@ const Services = () => {
               </div>
               
               {/* Wave container */}
-              <div className="relative py-8">
-                {/* Curved dashed line - SVG path */}
-                <svg 
-                  className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full h-32 pointer-events-none hidden md:block"
-                  viewBox="0 0 1200 120"
-                  preserveAspectRatio="none"
-                >
-                  <path 
-                    d="M0,60 Q100,20 200,60 T400,60 T600,60 T800,60 T1000,60 T1200,60" 
-                    fill="none" 
-                    stroke="hsl(var(--foreground) / 0.15)" 
-                    strokeWidth="2" 
-                    strokeDasharray="8 6"
-                  />
-                </svg>
-                
+              <div className="relative">
                 {/* Icons in wave pattern */}
-                <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-6 md:gap-0">
+                <div className="flex flex-wrap md:flex-nowrap justify-center items-start gap-6 md:gap-4 relative">
+                  {/* Curved dashed line - positioned behind icons */}
+                  <svg 
+                    className="absolute left-[8%] right-[8%] top-10 md:top-12 w-[84%] h-12 pointer-events-none hidden md:block z-0"
+                    viewBox="0 0 1000 50"
+                    preserveAspectRatio="none"
+                  >
+                    <path 
+                      d="M0,25 Q83,45 166,25 T333,25 T500,25 T666,25 T833,25 T1000,25" 
+                      fill="none" 
+                      stroke="hsl(var(--foreground) / 0.2)" 
+                      strokeWidth="2" 
+                      strokeDasharray="8 6"
+                    />
+                  </svg>
+                  
                   {extraClasses.map((cls, index) => {
                     // Create wave effect with different vertical positions
-                    const waveOffsets = [0, -20, 10, -15, 5, -10];
+                    const waveOffsets = [0, 20, -5, 15, -10, 5];
                     const offset = waveOffsets[index % waveOffsets.length];
                     
                     return (
@@ -249,11 +249,11 @@ const Services = () => {
                         key={cls.name} 
                         animation="scale" 
                         delay={index * 80}
-                        className="flex-1 min-w-[140px] md:min-w-0"
+                        className="flex-1 min-w-[140px] md:min-w-0 relative z-10"
                       >
                         <div 
                           className="group flex flex-col items-center"
-                          style={{ transform: `translateY(${offset}px)` }}
+                          style={{ paddingTop: `${Math.max(0, offset)}px` }}
                         >
                           {/* Circle with icon */}
                           <div className="relative">
