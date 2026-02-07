@@ -108,7 +108,7 @@ function LiquidButton({
       >
         {/* Glass background effect */}
         <span 
-          className="absolute inset-0 rounded-full bg-sage/20 backdrop-blur-sm border border-sage/30 transition-all duration-300 group-hover:bg-sage/30 group-hover:border-sage/50"
+          className="absolute inset-0 rounded-full bg-amber-accent/80 backdrop-blur-sm border border-amber-accent transition-all duration-300 group-hover:bg-amber-accent group-hover:border-amber-accent"
           style={{ filter: "url(#liquid-glass)" }}
         />
         
@@ -119,7 +119,7 @@ function LiquidButton({
         <span className="absolute inset-[2px] rounded-full bg-gradient-to-b from-white/10 to-transparent" />
 
         {/* Content */}
-        <span className="relative z-10 px-8 py-4 font-monly font-bold text-foreground group-hover:text-sage-dark transition-colors">
+        <span className="relative z-10 px-8 py-4 font-monly font-bold text-white group-hover:text-white transition-colors">
           {children}
         </span>
 
