@@ -72,7 +72,6 @@ const Header = () => {
               size="sm"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Sparkles className="w-4 h-4 mr-1" />
               Записаться
             </LiquidButton>
           </div>
