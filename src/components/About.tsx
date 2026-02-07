@@ -1,43 +1,67 @@
 import { useEffect, useRef, useState } from 'react';
-import { Home, Shield, Utensils, TreePine, Users, Heart, Award, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import { 
+  ChildGiraffe, 
+  ChildOwl, 
+  ChildPanda, 
+  ChildHedgehog, 
+  ChildFox, 
+  ChildBear,
+  ChildHome,
+  ChildShield,
+  ChildFood,
+  ChildTree
+} from '@/components/ui/child-icons';
 
-const features = [
+// Bento grid features with animal icons
+const bentoFeatures = [
   {
-    icon: Home,
-    title: 'Уютное пространство',
-    description: '200 м² современного оборудованного помещения с зонами для игр, занятий и отдыха.',
-    gradient: 'from-primary/20 to-sage/20',
-    iconColor: 'text-primary',
+    id: 'space',
+    title: 'Уютная и безопасная атмосфера',
+    description: 'Просторные игровые комнаты, оборудованные специальными материалами. В садике ведётся круглосуточное видеонаблюдение.',
+    AnimalIcon: ChildGiraffe,
+    size: 'large', // spans 2 columns
+    gradient: 'from-sage/20 to-primary/10',
   },
   {
-    icon: Utensils,
-    title: 'Домашняя кухня',
-    description: '5-разовое сбалансированное питание из свежих фермерских продуктов.',
-    gradient: 'from-amber-accent/20 to-primary/20',
-    iconColor: 'text-amber-accent',
+    id: 'schedule',
+    title: 'Гибкий график для вашего удобства',
+    description: 'Группа работает на полный и сокращённый день, также есть продлёнка с 7:30 до 19:00. В субботу организованы студии выходного дня.',
+    AnimalIcon: ChildOwl,
+    size: 'medium',
+    gradient: 'from-amber-accent/20 to-sage/10',
   },
   {
-    icon: Shield,
-    title: 'Безопасность 24/7',
-    description: 'Видеонаблюдение, видеодомофон, ежедневные фотоотчёты для родителей.',
-    gradient: 'from-sage/20 to-sky/20',
-    iconColor: 'text-sage',
+    id: 'teachers',
+    title: 'Квалифицированные педагоги',
+    description: 'Все педагоги имеют высшее педагогическое образование и опыт работы с детьми от 5 лет. Постоянное повышение квалификации.',
+    AnimalIcon: ChildPanda,
+    size: 'medium',
+    gradient: 'from-primary/20 to-sage/10',
   },
   {
-    icon: TreePine,
-    title: 'Свежий воздух',
-    description: 'Оборудованная площадка для прогулок. Ежедневные прогулки в любую погоду.',
-    gradient: 'from-emerald-500/20 to-sage/20',
-    iconColor: 'text-emerald-600',
+    id: 'activities',
+    title: 'Активности вне садика',
+    description: 'Организуем выезды в театры, на фермы, в музеи, на концерты и спортивные мероприятия, чтобы расширить кругозор детей.',
+    AnimalIcon: ChildHedgehog,
+    size: 'medium',
+    gradient: 'from-sage/20 to-emerald-500/10',
   },
 ];
 
-const stats = [
-  { value: 150, suffix: '+', label: 'Выпускников', icon: Users },
-  { value: 8, suffix: '', label: 'Лет работы', icon: Award },
-  { value: 98, suffix: '%', label: 'Довольных родителей', icon: Heart },
-  { value: 5, suffix: '', label: 'Воспитателей', icon: Sparkles },
+// Stats for the bottom info block
+const statsInfo = [
+  { Icon: ChildHome, value: '200 м²', label: 'площадь садика' },
+  { Icon: ChildShield, value: '24/7', label: 'видеонаблюдение' },
+];
+
+const zones = [
+  'Игровая зона',
+  'Зона отдыха',
+  'Творческая мастерская',
+  'Учебный класс',
+  'Спортивный уголок',
 ];
 
 // Animated counter hook
@@ -71,7 +95,6 @@ const useCountUp = (end: number, duration: number = 2000, startOnView: boolean =
     const animate = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       setCount(Math.floor(easeOutQuart * end));
       if (progress < 1) requestAnimationFrame(animate);
@@ -82,36 +105,10 @@ const useCountUp = (end: number, duration: number = 2000, startOnView: boolean =
   return { count, ref };
 };
 
-const StatCard = ({ stat, index }: { stat: typeof stats[0]; index: number }) => {
-  const { count, ref } = useCountUp(stat.value);
-  
-  return (
-    <ScrollReveal animation="fade-up" delay={index * 100}>
-      <div 
-        ref={ref}
-        className="group relative bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-white/50 shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2"
-      >
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-sage/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        <div className="relative">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-sage/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <stat.icon className="w-6 h-6 text-primary" />
-          </div>
-          <div className="flex items-baseline gap-1 mb-1">
-            <span className="text-4xl font-extrabold bg-gradient-to-r from-primary to-sage bg-clip-text text-transparent">
-              {count}
-            </span>
-            <span className="text-2xl font-bold text-primary">{stat.suffix}</span>
-          </div>
-          <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
-        </div>
-      </div>
-    </ScrollReveal>
-  );
-};
-
 const About = () => {
+  const { count: graduatesCount, ref: graduatesRef } = useCountUp(150);
+  const { count: yearsCount, ref: yearsRef } = useCountUp(8);
+
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       {/* Background decorations */}
@@ -127,10 +124,10 @@ const About = () => {
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-foreground">Почему выбирают нас</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-monly font-bold text-foreground mb-4">
               Лучшие условия для{' '}
               <span className="bg-gradient-to-r from-primary to-sage bg-clip-text text-transparent">
-                здоровья малышей
+                вашего малыша
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -140,47 +137,133 @@ const About = () => {
           </div>
         </ScrollReveal>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {stats.map((stat, index) => (
-            <StatCard key={stat.label} stat={stat} index={index} />
-          ))}
-        </div>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+          {/* Large card - spans 2 columns on lg */}
+          <ScrollReveal animation="fade-up" delay={0} className="lg:col-span-1 lg:row-span-2">
+            <div className="group relative h-full min-h-[320px] bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/50 shadow-card hover:shadow-elevated transition-all duration-500 overflow-hidden">
+              {/* Animal icon in corner */}
+              <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-gradient-to-br from-sage/30 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <ChildGiraffe size={40} className="text-amber-accent" />
+              </div>
+              
+              <div className="relative mt-16">
+                <h3 className="font-monly font-bold text-xl md:text-2xl text-foreground mb-4 max-w-[200px]">
+                  {bentoFeatures[0].title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {bentoFeatures[0].description}
+                </p>
+              </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <ScrollReveal key={feature.title} animation="fade-up" delay={index * 100}>
-              <div className="group relative h-full">
-                {/* Card */}
-                <div className="relative bg-white/60 backdrop-blur-xl rounded-3xl p-6 border border-white/50 shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 h-full">
-                  {/* Gradient background on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  
-                  <div className="relative">
-                    {/* Icon */}
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                      <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />
-                    </div>
-                    
-                    {/* Content */}
-                    <h3 className="font-bold text-lg mb-3 text-foreground group-hover:text-primary transition-colors">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                  
-                  {/* Shine effect */}
-                  <div className="absolute top-0 left-0 w-full h-full rounded-3xl overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-full transition-all duration-1000" />
-                  </div>
+              {/* Decorative gradient */}
+              <div className={`absolute -bottom-20 -left-20 w-48 h-48 bg-gradient-to-br ${bentoFeatures[0].gradient} rounded-full blur-2xl opacity-50 group-hover:opacity-70 transition-opacity`} />
+            </div>
+          </ScrollReveal>
+
+          {/* Medium cards */}
+          {bentoFeatures.slice(1).map((feature, index) => (
+            <ScrollReveal key={feature.id} animation="fade-up" delay={(index + 1) * 100}>
+              <div className="group relative h-full min-h-[200px] bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/50 shadow-card hover:shadow-elevated transition-all duration-500 overflow-hidden">
+                {/* Animal icon in corner */}
+                <div className="absolute top-4 right-4 w-14 h-14 rounded-full bg-gradient-to-br from-sage/30 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <feature.AnimalIcon size={32} className="text-amber-accent" />
                 </div>
+                
+                <div className="relative mt-12">
+                  <h3 className="font-monly font-bold text-lg text-foreground mb-3 max-w-[180px]">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+
+                {/* Decorative gradient */}
+                <div className={`absolute -bottom-16 -left-16 w-40 h-40 bg-gradient-to-br ${feature.gradient} rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity`} />
               </div>
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Bottom info section */}
+        <ScrollReveal animation="fade-up" delay={400}>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+            {/* Left block - Stats and zones */}
+            <div className="lg:col-span-3 bg-gradient-to-br from-sage/20 to-primary/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/50 shadow-card">
+              {/* Stats badges */}
+              <div className="flex flex-wrap gap-3 mb-6">
+                {statsInfo.map((stat, index) => (
+                  <div 
+                    key={stat.label}
+                    className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-5 py-3 border border-white/50 shadow-soft"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center">
+                      <stat.Icon size={18} className="text-sage" />
+                    </div>
+                    <span className="font-monly font-bold text-foreground">{stat.value}</span>
+                    <span className="text-sm text-muted-foreground">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <h3 className="font-monly font-bold text-xl text-foreground mb-4">
+                Помещение разделено на тематические зоны:
+              </h3>
+              
+              <ul className="space-y-2">
+                {zones.map((zone, index) => (
+                  <li key={zone} className="flex items-center gap-3 text-foreground">
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                    {zone}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Decorative tree */}
+              <div className="absolute bottom-4 right-4 opacity-20">
+                <ChildTree size={80} className="text-sage" />
+              </div>
+            </div>
+
+            {/* Right block - Fox card */}
+            <div className="lg:col-span-2 relative bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/50 shadow-card overflow-hidden">
+              {/* Fox icon */}
+              <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-gradient-to-br from-amber-accent/30 to-primary/20 flex items-center justify-center">
+                <ChildFox size={40} className="text-amber-accent" />
+              </div>
+
+              <div className="mt-14">
+                <h3 className="font-monly font-bold text-xl text-foreground mb-4">
+                  Разнообразные развивающие занятия
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Дополнительные занятия уже включены в основную программу: арт-терапия, 
+                  логопед, английский язык, песочная терапия, йога, уроки экологии.
+                </p>
+              </div>
+
+              {/* Stats at bottom */}
+              <div className="flex gap-6 mt-6 pt-6 border-t border-border/30">
+                <div ref={graduatesRef}>
+                  <span className="text-3xl font-monly font-bold bg-gradient-to-r from-primary to-sage bg-clip-text text-transparent">
+                    {graduatesCount}+
+                  </span>
+                  <p className="text-xs text-muted-foreground">выпускников</p>
+                </div>
+                <div ref={yearsRef}>
+                  <span className="text-3xl font-monly font-bold bg-gradient-to-r from-primary to-sage bg-clip-text text-transparent">
+                    {yearsCount}
+                  </span>
+                  <p className="text-xs text-muted-foreground">лет работы</p>
+                </div>
+              </div>
+
+              {/* Decorative gradient */}
+              <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-gradient-to-br from-amber-accent/20 to-primary/10 rounded-full blur-2xl" />
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
