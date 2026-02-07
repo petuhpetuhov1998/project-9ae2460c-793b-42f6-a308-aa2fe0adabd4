@@ -3,6 +3,7 @@ import { ArrowRight, ChefHat, Shield, Maximize, Star, Phone } from "lucide-react
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import heroChild from '@/assets/hero-child.jpg';
 import logo from '@/assets/logo.png';
+import { FoxIcon, BearIcon, RabbitIcon } from './AnimalIcons';
 
 const Hero = () => {
   const advantages = [
@@ -10,19 +11,22 @@ const Hero = () => {
       icon: ChefHat, 
       title: 'Домашняя кухня', 
       desc: '5-разовое питание',
-      color: 'from-amber-accent to-primary'
+      color: 'from-amber-accent to-primary',
+      animalIcon: FoxIcon,
     },
     { 
       icon: Shield, 
       title: 'Безопасность', 
       desc: 'Видеонаблюдение 24/7',
-      color: 'from-sage to-primary'
+      color: 'from-sage to-primary',
+      animalIcon: BearIcon,
     },
     { 
       icon: Maximize, 
       title: '200 м²', 
       desc: 'Просторное помещение',
-      color: 'from-primary to-sage'
+      color: 'from-primary to-sage',
+      animalIcon: RabbitIcon,
     },
   ];
 
@@ -193,6 +197,11 @@ const Hero = () => {
               key={adv.title}
               className={`animate-slide-up delay-${(index + 3) * 100} group relative overflow-hidden rounded-2xl bg-white border border-border p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
             >
+              {/* Animal Icon */}
+              <div className="absolute -top-3 -right-3 z-10">
+                <adv.animalIcon className="w-14 h-14 drop-shadow-md group-hover:scale-110 transition-transform" />
+              </div>
+              
               {/* Icon */}
               <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${adv.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                 <adv.icon className="w-7 h-7 text-white" />
