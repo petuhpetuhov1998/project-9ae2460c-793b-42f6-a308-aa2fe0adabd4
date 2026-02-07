@@ -83,31 +83,20 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 px-4 pt-28 pb-16">
         
-        {/* Top bar with logo and CTA */}
-        <div className="animate-slide-up flex items-center justify-between mb-12">
-          <div className="flex items-center gap-4">
-            <img src={logo} alt="Мистер Мишка" className="w-14 h-14 object-contain" />
-            <div>
-              <p className="font-monly font-bold text-foreground text-lg">Мистер Мишка</p>
-              <p className="text-sm text-muted-foreground">Частный детский сад</p>
-            </div>
-          </div>
-          <div className="hidden md:flex items-center gap-3">
-            <a 
-              href="tel:+79123456789" 
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors"
-            >
-              <Phone className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">+7 912 345-67-89</span>
-            </a>
-          </div>
-        </div>
-
         {/* Main content grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left column - Text content */}
-          <div className="space-y-8">
+          <div className="space-y-6">
+            
+            {/* Logo and brand */}
+            <div className="animate-slide-up flex items-center gap-4">
+              <img src={logo} alt="Мистер Мишка" className="w-14 h-14 object-contain" />
+              <div>
+                <p className="font-monly font-bold text-foreground text-lg">Мистер Мишка</p>
+                <p className="text-sm text-muted-foreground">Частный детский сад</p>
+              </div>
+            </div>
             
             {/* Badge */}
             <div className="animate-slide-up delay-100 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-accent/10 border border-amber-accent/20">
