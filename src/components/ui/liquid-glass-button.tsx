@@ -119,7 +119,7 @@ function LiquidButton({
         <span className="absolute inset-[2px] rounded-full bg-gradient-to-b from-white/10 to-transparent" />
 
         {/* Content */}
-        <span className="relative z-10 px-8 py-4 font-monly font-bold text-white group-hover:text-white transition-colors">
+        <span className="relative z-10 px-8 py-4 font-monly font-bold text-lg md:text-xl text-white group-hover:text-white transition-colors">
           {children}
         </span>
 
