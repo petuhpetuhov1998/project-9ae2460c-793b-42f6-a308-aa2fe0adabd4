@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X, Phone, MapPin, Clock, Sparkles } from 'lucide-react';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
-import bearMascot from '@/assets/bear-mascot.png';
+import logo from '@/assets/logo.png';
 
 const navLinks = [
   { href: '#about', label: 'О нас' },
@@ -27,10 +27,10 @@ const Header = () => {
           <a href="#" className="flex items-center gap-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-sage/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-              <img src={bearMascot} alt="Мистер Мишка" className="w-12 h-12 object-contain relative group-hover:scale-110 transition-transform" />
+              <img src={logo} alt="Мистер Мишка" className="w-12 h-12 object-contain relative group-hover:scale-110 transition-transform" />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+              <span className="font-monly font-bold text-xl text-foreground">
                 Мистер Мишка
               </span>
               <span className="text-xs text-muted-foreground hidden sm:block">Детский сад в Тюмени</span>

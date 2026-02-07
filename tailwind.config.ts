@@ -15,7 +15,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Nunito', 'system-ui', 'sans-serif'],
-        heading: ['Nunito', 'system-ui', 'sans-serif'],
+        heading: ['Monly', 'Nunito', 'system-ui', 'sans-serif'],
+        monly: ['Monly', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
