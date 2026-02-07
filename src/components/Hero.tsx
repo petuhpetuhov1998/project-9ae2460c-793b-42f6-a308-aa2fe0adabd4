@@ -150,10 +150,10 @@ const Hero = () => {
           </div>
 
           {/* Right column - Image */}
-          <div className="relative animate-scale-up delay-200">
+          <div className="relative animate-scale-up delay-200 flex justify-center">
             
             {/* Main image container */}
-            <div className="relative animate-gentle-float">
+            <div className="relative animate-gentle-float max-w-[320px] md:max-w-[380px]">
               
               {/* Glow effect */}
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-sage/20 to-amber-accent/30 rounded-[2rem] blur-2xl" />
