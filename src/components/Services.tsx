@@ -2,6 +2,14 @@ import { Clock, Star, Sparkles, Crown, Zap } from 'lucide-react';
 import { RippleButton } from '@/components/ui/ripple-button';
 import ScrollReveal from './ScrollReveal';
 import { Tiles } from '@/components/ui/tiles';
+import { 
+  ChildSpeech, 
+  ChildDancing, 
+  ChildPencil, 
+  ChildChess, 
+  ChildPalette, 
+  ChildMusic 
+} from '@/components/ui/child-icons';
 
 const subscriptions = [
   {
@@ -36,12 +44,12 @@ const subscriptions = [
 ];
 
 const extraClasses = [
-  { name: 'Логопед', price: 'от 800 ₽', emoji: '🗣️' },
-  { name: 'Танцы', price: 'от 600 ₽', emoji: '💃' },
-  { name: 'Каллиграфия', price: 'от 700 ₽', emoji: '✍️' },
-  { name: 'Шахматы', price: 'от 600 ₽', emoji: '♟️' },
-  { name: 'Рисование', price: 'от 500 ₽', emoji: '🎨' },
-  { name: 'Музыка', price: 'от 600 ₽', emoji: '🎵' },
+  { name: 'Логопед', price: 'от 800 ₽', Icon: ChildSpeech },
+  { name: 'Танцы', price: 'от 600 ₽', Icon: ChildDancing },
+  { name: 'Каллиграфия', price: 'от 700 ₽', Icon: ChildPencil },
+  { name: 'Шахматы', price: 'от 600 ₽', Icon: ChildChess },
+  { name: 'Рисование', price: 'от 500 ₽', Icon: ChildPalette },
+  { name: 'Музыка', price: 'от 600 ₽', Icon: ChildMusic },
 ];
 
 const CheckIcon = ({ className }: { className?: string }) => (
@@ -217,9 +225,9 @@ const Services = () => {
                   <ScrollReveal key={cls.name} animation="scale" delay={index * 50}>
                     <div className="group relative">
                       <div className="backdrop-blur-sm bg-white/70 rounded-2xl p-5 text-center border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-2 hover:bg-white/90">
-                        {/* Emoji */}
-                        <div className="text-3xl mb-3 group-hover:scale-125 transition-transform duration-300">
-                          {cls.emoji}
+                        {/* Icon */}
+                        <div className="flex justify-center mb-3 text-foreground group-hover:scale-125 transition-transform duration-300 group-hover:text-primary">
+                          <cls.Icon size={36} />
                         </div>
                         <p className="font-monly font-bold text-foreground mb-1">{cls.name}</p>
                         <p className="text-sm text-muted-foreground">{cls.price}</p>

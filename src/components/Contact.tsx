@@ -3,6 +3,7 @@ import { Send, Phone, MapPin, Clock, MessageCircle, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import ScrollReveal from './ScrollReveal';
+import { ChildLightbulb } from '@/components/ui/child-icons';
 
 // Lazy load the map component
 const Map = lazy(() => import('./Map'));
@@ -212,10 +213,13 @@ const Contact = () => {
 
               {/* Quick Note */}
               <div className="bg-gradient-to-r from-amber-accent/10 to-primary/10 border border-amber-accent/30 rounded-2xl p-5 backdrop-blur-sm">
-                <p className="text-sm text-foreground">
-                  <span className="font-bold">💡 Совет:</span> Запишитесь на экскурсию, чтобы лично 
-                  познакомиться с нашим садом, воспитателями и задать все интересующие вопросы!
-                </p>
+                <div className="flex items-start gap-3 text-sm text-foreground">
+                  <ChildLightbulb size={20} className="flex-shrink-0 mt-0.5 text-amber-accent" />
+                  <p>
+                    <span className="font-bold">Совет:</span> Запишитесь на экскурсию, чтобы лично 
+                    познакомиться с нашим садом, воспитателями и задать все интересующие вопросы!
+                  </p>
+                </div>
               </div>
 
               {/* Map */}

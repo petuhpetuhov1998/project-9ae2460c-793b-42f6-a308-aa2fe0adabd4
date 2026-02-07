@@ -1,9 +1,9 @@
 import React from "react";
-import { ArrowRight, ChefHat, Shield, Maximize, Star, Phone } from "lucide-react";
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import heroChild from '@/assets/hero-child.jpg';
 import logo from '@/assets/logo.png';
-
+import { ChildBaby, ChildGirl, ChildBoy, ChildToddler } from '@/components/ui/child-icons';
+import { ChefHat, Shield, Maximize } from "lucide-react";
 const Hero = () => {
   const advantages = [
     { 
@@ -134,12 +134,12 @@ const Hero = () => {
             {/* Trust indicators */}
             <div className="animate-slide-up delay-400 flex items-center gap-6 pt-4">
               <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
+                {[ChildBaby, ChildGirl, ChildBoy, ChildToddler].map((Icon, i) => (
                   <div 
                     key={i} 
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-sage border-2 border-white flex items-center justify-center text-white text-xs font-bold"
+                    className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-sage border-2 border-white flex items-center justify-center text-white"
                   >
-                    {['👶', '👧', '👦', '🧒'][i-1]}
+                    <Icon size={20} />
                   </div>
                 ))}
               </div>
