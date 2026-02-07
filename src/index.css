@@ -62,6 +62,8 @@
     /* Светлый #E8E5E2 */
     --cream: 30 10% 90%;
     --gray-warm: 225 6% 65%;
+    /* Sage green для акцентного текста */
+    --sage-text: 150 25% 45%;
     
     /* Playful colors for kids - на основе фирменных */
     --sky-light: 30 10% 90%;
