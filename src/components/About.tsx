@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Home, Shield, Utensils, TreePine, Users, Heart, Award, Sparkles } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
-import { GiraffeIcon, OwlIcon, PandaIcon, HedgehogIcon } from './AnimalIcons';
 
 const features = [
   {
@@ -10,7 +9,6 @@ const features = [
     description: '200 м² современного оборудованного помещения с зонами для игр, занятий и отдыха.',
     gradient: 'from-primary/20 to-sage/20',
     iconColor: 'text-primary',
-    animalIcon: GiraffeIcon,
   },
   {
     icon: Utensils,
@@ -18,7 +16,6 @@ const features = [
     description: '5-разовое сбалансированное питание из свежих фермерских продуктов.',
     gradient: 'from-amber-accent/20 to-primary/20',
     iconColor: 'text-amber-accent',
-    animalIcon: OwlIcon,
   },
   {
     icon: Shield,
@@ -26,7 +23,6 @@ const features = [
     description: 'Видеонаблюдение, видеодомофон, ежедневные фотоотчёты для родителей.',
     gradient: 'from-sage/20 to-sky/20',
     iconColor: 'text-sage',
-    animalIcon: PandaIcon,
   },
   {
     icon: TreePine,
@@ -34,7 +30,6 @@ const features = [
     description: 'Оборудованная площадка для прогулок. Ежедневные прогулки в любую погоду.',
     gradient: 'from-emerald-500/20 to-sage/20',
     iconColor: 'text-emerald-600',
-    animalIcon: HedgehogIcon,
   },
 ];
 
@@ -163,11 +158,6 @@ const About = () => {
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                   
                   <div className="relative">
-                    {/* Animal Icon */}
-                    <div className="absolute -top-2 -right-2 z-10">
-                      <feature.animalIcon className="w-12 h-12 drop-shadow-md" />
-                    </div>
-                    
                     {/* Icon */}
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
                       <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />
