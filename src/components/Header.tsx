@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, Phone, MapPin, Clock } from 'lucide-react';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import bearMascot from '@/assets/bear-mascot.png';
 
 const navLinks = [
@@ -47,9 +48,12 @@ const Header = () => {
               <Phone className="w-4 h-4 text-primary" />
               +7 (3452) 00-00-00
             </a>
-            <a href="#contact" className="btn-primary text-sm">
+            <LiquidButton 
+              size="sm"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Записаться
-            </a>
+            </LiquidButton>
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,9 +92,16 @@ const Header = () => {
                   <Phone className="w-4 h-4 text-primary" />
                   +7 (3452) 00-00-00
                 </a>
-                <a href="#contact" className="btn-primary text-center mt-2">
+                <LiquidButton 
+                  size="default"
+                  className="w-full mt-2"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   Записаться на экскурсию
-                </a>
+                </LiquidButton>
               </div>
             </div>
           </nav>

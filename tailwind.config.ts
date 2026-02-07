@@ -155,6 +155,10 @@ export default {
           "0%": { opacity: "1" },
           "100%": { transform: "scale(2)", opacity: "0" },
         },
+        "shimmer": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -170,6 +174,7 @@ export default {
         "wiggle": "wiggle 1s ease-in-out infinite",
         "scale-in": "scale-in 0.5s ease-out forwards",
         "rippling": "rippling 1s ease-out",
+        "shimmer": "shimmer 2s infinite",
       },
     },
   },

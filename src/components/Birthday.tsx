@@ -1,4 +1,5 @@
 import { Gift, Camera, Music, Cake, PartyPopper, Star } from 'lucide-react';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import ScrollReveal from './ScrollReveal';
 
 const birthdayFeatures = [
@@ -66,9 +67,12 @@ const Birthday = () => {
                 ))}
               </div>
 
-              <a href="#contact" className="btn-primary inline-flex items-center gap-2 hover:scale-105 transition-transform">
+              <LiquidButton 
+                size="lg"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Заказать праздник
-              </a>
+              </LiquidButton>
             </div>
           </ScrollReveal>
         </div>

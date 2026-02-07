@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Send, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import ScrollReveal from './ScrollReveal';
 
 const Contact = () => {
@@ -111,14 +112,15 @@ const Contact = () => {
                   />
                 </div>
                 
-                <button
+                <LiquidButton
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-70 hover:scale-[1.02] transition-transform"
+                  size="lg"
+                  className="w-full"
                 >
                   {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
-                  <Send className="w-4 h-4" />
-                </button>
+                  <Send className="w-4 h-4 ml-2" />
+                </LiquidButton>
               </form>
             </div>
           </ScrollReveal>
