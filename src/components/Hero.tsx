@@ -15,7 +15,7 @@ import {
   Music
 } from "lucide-react";
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
-import heroChild from '@/assets/hero-child.png';
+import heroChild from '@/assets/hero-child.jpg';
 
 // Features for marquee
 const FEATURES = [
