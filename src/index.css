@@ -54,6 +54,15 @@
     --brown: 25 35% 45%;
     --brown-light: 25 30% 70%;
     --cream: 40 30% 95%;
+    
+    /* Playful colors for kids */
+    --sky-light: 200 80% 92%;
+    --sky: 200 70% 85%;
+    --pink-accent: 340 65% 65%;
+    --pink-light: 340 60% 80%;
+    --amber-accent: 40 90% 60%;
+    --amber-light: 40 80% 85%;
+    --peach: 25 80% 88%;
     --gray-warm: 30 10% 60%;
     
     /* Gradients */

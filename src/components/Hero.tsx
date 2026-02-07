@@ -1,121 +1,119 @@
-import { ArrowRight } from 'lucide-react';
-import heroChild from '@/assets/hero-child.png';
+import { MapPin } from 'lucide-react';
+import heroChild from '@/assets/hero-child-balls.png';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen pt-24 pb-8 overflow-hidden bg-cream">
-      {/* Decorative brush strokes */}
-      <div className="absolute top-20 right-0 w-[600px] h-[700px] pointer-events-none">
-        <svg viewBox="0 0 600 700" className="w-full h-full" preserveAspectRatio="none">
-          <path
-            d="M450 50 Q550 100, 580 200 Q600 350, 550 500 Q500 600, 400 650"
-            fill="none"
-            stroke="hsl(18 55% 80% / 0.6)"
-            strokeWidth="120"
-            strokeLinecap="round"
-          />
-          <path
-            d="M380 100 Q480 150, 520 280 Q540 400, 480 520"
-            fill="none"
-            stroke="hsl(18 55% 85% / 0.4)"
-            strokeWidth="80"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
-
-      {/* Decorative shapes */}
-      <div className="absolute top-32 right-[35%] w-6 h-6 bg-sage rounded-full opacity-60" />
-      <div className="absolute top-48 left-[5%] w-4 h-4 bg-warm rounded-full opacity-40" />
-      <div className="absolute bottom-40 left-[8%] w-5 h-5 bg-sage/50 rounded-full" />
-      
-      {/* Small decorative star */}
-      <svg className="absolute bottom-36 left-[12%] w-6 h-6 text-warm/60" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2L14 8L20 10L14 12L12 18L10 12L4 10L10 8L12 2Z" />
-      </svg>
-
-      {/* Small curve accent near title */}
-      <svg className="absolute top-[45%] right-[42%] w-8 h-8 text-sage" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M8 24 Q16 8, 24 16" strokeLinecap="round" />
-      </svg>
+    <section className="relative min-h-screen pt-24 pb-12 overflow-hidden bg-gradient-to-br from-sky-light via-sky/30 to-sky-light">
+      {/* Decorative circles */}
+      <div className="absolute top-32 right-[15%] w-16 h-16 rounded-full border-4 border-sky/50" />
+      <div className="absolute top-48 left-[8%] w-8 h-8 rounded-full bg-amber-light/60" />
+      <div className="absolute top-[60%] left-[5%] w-12 h-12 rounded-full border-4 border-pink-light/40" />
+      <div className="absolute bottom-[30%] right-[8%] w-10 h-10 rounded-full border-4 border-sky/40" />
+      <div className="absolute top-40 right-[40%] w-6 h-6 rounded-full bg-pink-light/50" />
+      <div className="absolute bottom-40 left-[15%] w-4 h-4 rounded-full bg-amber-light/50" />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-200px)]">
+        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-280px)]">
           {/* Text Content */}
           <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-8">
-              <span className="text-foreground">Частный детский</span>
+            {/* Location */}
+            <div className="flex items-center gap-2 mb-6">
+              <MapPin className="w-5 h-5 text-muted-foreground" />
+              <span className="text-muted-foreground">г. Тюмень</span>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
+              <span className="text-amber-accent font-heading tracking-wide">МИСТЕР МИШКА</span>
               <br />
-              <span className="text-foreground">сад </span>
-              <span className="relative inline-block">
-                <span className="relative z-10">в Тюмени</span>
-                {/* Decorative underline bracket */}
-                <svg className="absolute -bottom-2 left-0 w-full h-4 text-sage" viewBox="0 0 200 20" preserveAspectRatio="none">
-                  <path d="M5 5 Q100 20, 195 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                </svg>
-              </span>
+              <span className="text-foreground uppercase">Частный</span>
+              <br />
+              <span className="text-foreground uppercase">Детский сад</span>
             </h1>
 
-            {/* Feature points */}
-            <div className="flex flex-col sm:flex-row gap-6 mb-8">
-              <div className="flex items-start gap-3">
-                <span className="mt-1.5">
-                  <svg width="12" height="12" viewBox="0 0 12 12" className="text-warm">
-                    <polygon points="6,0 12,12 0,12" fill="currentColor" />
-                  </svg>
-                </span>
-                <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">
-                  Все развивающие занятия<br />для ребенка в одном месте
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="w-3 h-3 bg-warm rounded-full mt-1.5 flex-shrink-0" />
-                <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">
-                  Эмоциональное воспитание<br />в комфортной среде
-                </p>
-              </div>
-            </div>
+            {/* Subtitle */}
+            <p className="text-lg text-muted-foreground mb-8 max-w-md">
+              с заботой о детях<br />и родителях
+            </p>
 
-            {/* CTA Section */}
-            <div className="mb-10">
-              <p className="text-foreground mb-4">
-                Запишитесь на <span className="font-bold">бесплатный пробный день</span>
-              </p>
-              <a 
-                href="#contact" 
-                className="inline-flex items-center gap-2 bg-sage hover:bg-sage-dark text-foreground hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-soft hover:shadow-elevated text-lg"
-              >
-                Записаться на пробный день
-              </a>
-            </div>
+            {/* CTA Button */}
+            <a 
+              href="#contact" 
+              className="inline-flex items-center gap-2 bg-pink-accent hover:bg-pink-accent/90 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg uppercase tracking-wide"
+            >
+              Записаться на экскурсию
+            </a>
           </div>
 
           {/* Hero Image */}
           <div className="relative flex justify-center lg:justify-end animate-slide-in-right">
-            <img 
-              src={heroChild} 
-              alt="Счастливый ребенок" 
-              className="relative z-10 h-[500px] lg:h-[600px] object-contain object-bottom"
-            />
+            {/* Decorative elements around image */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-pink-light/60" />
+            <div className="absolute -bottom-2 -left-6 w-6 h-6 rounded-full bg-amber-light/60" />
+            
+            {/* Circular image container */}
+            <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]">
+              <div className="absolute inset-0 rounded-full border-8 border-amber-accent bg-background overflow-hidden shadow-elevated">
+                <img 
+                  src={heroChild} 
+                  alt="Счастливый ребенок" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Info Cards at bottom */}
-        <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mt-4">
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 border border-border/50">
-            <p className="text-foreground text-sm mb-1">
-              Группы максимум по <span className="font-bold">15 детей</span>
-            </p>
-            <p className="text-muted-foreground text-sm">
-              Индивидуальный подход к каждому
+        {/* Info Cards */}
+        <div className="grid sm:grid-cols-3 gap-6 mt-8">
+          {/* Card 1 - Blue */}
+          <div className="relative bg-sky/60 rounded-3xl p-6 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-300 backdrop-blur-sm">
+            {/* Decorative star */}
+            <div className="absolute -top-3 -right-2">
+              <svg className="w-8 h-8 text-sky" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C12.5 2 13 2.5 13 3V5C13 5.5 12.5 6 12 6C11.5 6 11 5.5 11 5V3C11 2.5 11.5 2 12 2Z" />
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            </div>
+            <p className="text-foreground text-center">
+              <span className="font-bold text-lg">с 7:30 до 18:00</span>
+              <br />
+              <span className="text-sm text-muted-foreground">по запросу продленка</span>
             </p>
           </div>
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 border border-border/50">
-            <p className="text-foreground text-sm mb-1">
-              Возможность оплаты <span className="font-bold">по неделям</span>
+
+          {/* Card 2 - Light blue */}
+          <div className="relative bg-sky-light/80 rounded-3xl p-6 transform rotate-[1deg] hover:rotate-0 transition-transform duration-300 backdrop-blur-sm">
+            {/* Decorative star */}
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <svg className="w-8 h-8 text-amber-accent" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L14 8L20 10L14 12L12 18L10 12L4 10L10 8L12 2Z" />
+              </svg>
+            </div>
+            <p className="text-foreground text-center">
+              <span className="font-bold text-lg">Принимаем</span>
+              <br />
+              <span className="text-sm">с 1.5 лет</span>
             </p>
-            <p className="text-muted-foreground text-sm">
-              <span className="font-bold">Нет</span> вступительного взноса
+          </div>
+
+          {/* Card 3 - Peach */}
+          <div className="relative bg-peach/80 rounded-3xl p-6 transform rotate-[2deg] hover:rotate-0 transition-transform duration-300 backdrop-blur-sm">
+            {/* Decorative flower */}
+            <div className="absolute -top-3 -right-2">
+              <svg className="w-8 h-8 text-pink-accent" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="3" />
+                <circle cx="12" cy="6" r="2.5" />
+                <circle cx="17" cy="9" r="2.5" />
+                <circle cx="15" cy="15" r="2.5" />
+                <circle cx="9" cy="15" r="2.5" />
+                <circle cx="7" cy="9" r="2.5" />
+              </svg>
+            </div>
+            <p className="text-foreground text-center">
+              <span className="font-bold text-lg">В группах</span>
+              <br />
+              <span className="text-sm">до 15 детей</span>
             </p>
           </div>
         </div>
