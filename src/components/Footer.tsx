@@ -1,5 +1,40 @@
 import { Phone, MapPin, Clock, MessageCircle, Heart, ArrowUp, Sparkles } from 'lucide-react';
 import logo from '@/assets/logo.png';
+import { useEffect, useRef } from 'react';
+
+// Mini map component for footer
+const FooterMap = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    containerRef.current.innerHTML = '';
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.charset = 'utf-8';
+    script.async = true;
+    script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4187f624647c7ac7a3a71f6f1758c6599661a0717e3687d36d8e94ab7b6ad805&width=100%25&height=100%25&lang=ru_RU&scroll=true';
+    
+    containerRef.current.appendChild(script);
+
+    return () => {
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
+      }
+    };
+  }, []);
+
+  return (
+    <div className="relative rounded-2xl overflow-hidden h-40 border border-white/20">
+      <div 
+        ref={containerRef} 
+        className="w-full h-full"
+        style={{ minHeight: '160px' }}
+      />
+    </div>
+  );
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -146,17 +181,10 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Map placeholder */}
+            {/* Map */}
             <div>
               <h4 className="font-bold mb-6 text-lg">Как добраться</h4>
-              <div className="relative rounded-2xl overflow-hidden h-40 bg-white/10 border border-white/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <p className="text-sm text-white/70">Карта проезда</p>
-                  </div>
-                </div>
-              </div>
+              <FooterMap />
             </div>
           </div>
 
