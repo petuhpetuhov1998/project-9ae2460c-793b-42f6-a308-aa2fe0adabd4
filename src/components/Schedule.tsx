@@ -1,4 +1,4 @@
-import { Sun, Coffee, Book, Apple, Moon, Utensils, TreePine, Music, Palette, Clock, Sunrise, Sunset } from 'lucide-react';
+import { Sun, Coffee, Book, Apple, Moon, Utensils, TreePine, Music, Palette, Clock, Sunrise, Sunset, Heart, Sparkles, BookOpen } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import { useState } from 'react';
 
@@ -8,10 +8,12 @@ const scheduleData = {
     icon: Sunrise,
     color: 'from-amber-accent/40 to-primary/30',
     items: [
-      { time: '7:30', activity: 'Приём детей', detail: 'Свободная игра', icon: Sun },
-      { time: '8:30', activity: 'Зарядка', detail: 'Весёлая разминка', icon: Music },
+      { time: '7:30', activity: 'Встреча малышей', detail: 'Начало дня', icon: Sun },
+      { time: '8:45', activity: 'Зарядка / Логоритмика', detail: 'Весёлая музыкальная разминка', icon: Music },
       { time: '9:00', activity: 'Завтрак', detail: 'Полезное питание', icon: Coffee },
-      { time: '9:30', activity: 'Занятия', detail: 'Развивающие игры', icon: Book },
+      { time: '9:30', activity: 'Кружок «Творчество»', detail: 'Развиваем фантазию', icon: Palette },
+      { time: '10:00', activity: '«Познаём мир» / Йога', detail: 'Развивающие занятия', icon: Book },
+      { time: '10:30', activity: 'Второй завтрак', detail: 'Перекус', icon: Apple },
     ]
   },
   day: {
@@ -19,10 +21,11 @@ const scheduleData = {
     icon: Sun,
     color: 'from-sage/40 to-emerald-500/30',
     items: [
-      { time: '10:30', activity: 'Прогулка', detail: 'Свежий воздух', icon: TreePine },
-      { time: '12:00', activity: 'Обед', detail: 'Домашняя кухня', icon: Utensils },
-      { time: '12:30', activity: 'Дневной сон', detail: 'Тихий час', icon: Moon },
-      { time: '15:00', activity: 'Полдник', detail: 'Лёгкий перекус', icon: Apple },
+      { time: '11:00', activity: 'Прогулка', detail: 'Свежий воздух', icon: TreePine },
+      { time: '12:00', activity: 'Обед', detail: 'Первое, второе, салат', icon: Utensils },
+      { time: '12:30', activity: 'Тихий час', detail: 'Дневной сон', icon: Moon },
+      { time: '15:00', activity: 'Гигиенические процедуры', detail: 'Подготовка к полднику', icon: Sparkles },
+      { time: '15:30', activity: 'Полдник', detail: 'Лёгкий перекус', icon: Apple },
     ]
   },
   evening: {
@@ -30,10 +33,10 @@ const scheduleData = {
     icon: Sunset,
     color: 'from-pink-accent/40 to-primary/30',
     items: [
-      { time: '15:30', activity: 'Творчество', detail: 'Кружки и занятия', icon: Palette },
-      { time: '16:30', activity: 'Прогулка', detail: 'Игры на площадке', icon: TreePine },
-      { time: '17:30', activity: 'Ужин', detail: 'Вечернее питание', icon: Coffee },
-      { time: '18:00 – 18:30', activity: 'Уход домой', detail: 'До завтра!', icon: Sun },
+      { time: '16:00', activity: 'Чтение, лепка, раскраски', detail: 'Любимые книги', icon: BookOpen },
+      { time: '17:00', activity: 'Ужин', detail: 'Вечернее питание', icon: Coffee },
+      { time: '17:30', activity: 'Подвижные игры', detail: 'Свободная игра', icon: Heart },
+      { time: '18:00 – 18:30', activity: 'Встреча с родителями', detail: 'До завтра!', icon: Sun },
     ]
   }
 };
