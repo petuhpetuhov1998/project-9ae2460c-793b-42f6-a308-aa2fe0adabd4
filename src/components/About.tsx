@@ -10,7 +10,8 @@ import {
   ChildHome,
   ChildShield,
   ChildFood,
-  ChildTree
+  ChildTree,
+  ChildVideoCamera
 } from '@/components/ui/child-icons';
 
 // Bento grid features with animal icons
@@ -53,6 +54,7 @@ const bentoFeatures = [
 const statsInfo = [
   { Icon: ChildHome, value: '270 м²', label: 'площадь садика' },
   { Icon: ChildShield, value: '24/7', label: 'пультовая охрана' },
+  { Icon: ChildVideoCamera, value: 'HD', label: 'видеонаблюдение' },
 ];
 
 const zones = [

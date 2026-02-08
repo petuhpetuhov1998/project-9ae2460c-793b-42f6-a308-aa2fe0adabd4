@@ -518,3 +518,14 @@ export const ChildRhythm = ({ className, size = 24 }: ChildIconProps) => (
     <path d="M14 10h3M14 13h2" stroke="currentColor" strokeWidth="1" />
   </IconWrapper>
 );
+
+// Video camera / Видеонаблюдение
+export const ChildVideoCamera = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <rect x="2" y="7" width="14" height="11" rx="2" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M16 10l5-3v10l-5-3" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <circle cx="8" cy="12.5" r="3" stroke="currentColor" strokeWidth="1.3" />
+    <circle cx="8" cy="12.5" r="1" fill="currentColor" />
+    <circle cx="4.5" cy="9" r="0.8" fill="currentColor" opacity="0.7" />
+  </IconWrapper>
+);
