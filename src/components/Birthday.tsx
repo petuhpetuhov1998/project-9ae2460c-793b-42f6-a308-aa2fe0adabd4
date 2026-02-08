@@ -18,34 +18,34 @@ import birthday3 from '@/assets/birthday-3.jpg';
 
 const traditions = [
   { 
-    Icon: ChildCrown, 
-    title: 'Корона именинника',
-    description: 'Каждый именинник — король или королева дня'
-  },
-  { 
-    Icon: ChildCake, 
-    title: 'Праздничный торт',
-    description: 'Задуваем свечи все вместе'
-  },
-  { 
     Icon: ChildBalloon, 
-    title: 'Шарики и декор',
-    description: 'Украшаем группу к празднику'
+    title: 'Яркое украшение',
+    description: 'Украшаем группу шарами и гирляндами, создавая атмосферу праздника'
   },
   { 
     Icon: ChildGamepad, 
-    title: 'Весёлые игры',
-    description: 'Конкурсы и танцы с друзьями'
-  },
-  { 
-    Icon: ChildGift, 
-    title: 'Подарки от друзей',
-    description: 'Поделки и открытки от группы'
+    title: 'Хороводы и игры',
+    description: 'Водим хороводы, играем в подвижные игры и устраиваем забавные конкурсы'
   },
   { 
     Icon: ChildCamera, 
-    title: 'Памятные фото',
-    description: 'Сохраним этот день навсегда'
+    title: 'Фото и видео',
+    description: 'Делаем много фотографий и видеосъёмку лучших моментов праздника'
+  },
+  { 
+    Icon: ChildGift, 
+    title: 'Подарок-сюрприз',
+    description: 'Малыш получает небольшой подарок от коллектива нашего сада'
+  },
+  { 
+    Icon: ChildCrown, 
+    title: 'Фотозона',
+    description: 'Родители могут организовать оригинальную фотозону для праздника'
+  },
+  { 
+    Icon: ChildPartyPopper, 
+    title: 'Аниматоры',
+    description: 'Можно пригласить профессионального аниматора к нам в садик'
   },
 ];
 
@@ -82,15 +82,15 @@ const Birthday = () => {
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6">
-              День рождения —{' '}
+              Дни рождения —{' '}
               <span className="bg-gradient-to-r from-amber-accent via-primary to-amber-accent bg-clip-text text-transparent">
-                особенный день
+                настоящий фейерверк радости!
               </span>
             </h2>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              В «Мистер Мишка» каждый именинник чувствует себя настоящей звездой. 
-              Мы празднуем день рождения каждого ребёнка — это наш любимый ритуал!
+              Чтобы праздник был незабываемым и ярким, наши воспитатели превращают 
+              каждый день рождения малыша в волшебное событие!
             </p>
           </div>
         </ScrollReveal>
@@ -128,12 +128,12 @@ const Birthday = () => {
                     </div>
                   </div>
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-3 leading-tight">
-                    Волшебный праздник 
-                    <span className="text-amber-accent"> для каждого</span>
+                    Незабываемый праздник
+                    <span className="text-amber-accent"> для вашего малыша</span>
                   </h3>
                   <p className="text-white/90 text-base md:text-lg leading-relaxed max-w-xl">
-                    Корона, торт со свечами, поздравления от друзей, танцы и игры — 
-                    всё это ждёт каждого именинника в нашем садике.
+                    Яркие шары и гирлянды, хороводы, весёлые конкурсы и много-много 
+                    фотографий на память — всё это ждёт каждого именинника!
                   </p>
                 </div>
                 {/* Floating stars decoration */}
