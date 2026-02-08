@@ -463,3 +463,58 @@ export const ChildCrown = ({ className, size = 24 }: ChildIconProps) => (
     <circle cx="18" cy="7" r="1.2" fill="currentColor" />
   </IconWrapper>
 );
+
+// Yoga pose / Детская йога
+export const ChildYoga = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <circle cx="12" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M12 8v5" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M7 11c2 1 3 2 5 2s3-1 5-2" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M12 13c-2 2-4 5-4 7M12 13c2 2 4 5 4 7" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M8 20l4-3 4 3" stroke="currentColor" strokeWidth="1.3" />
+  </IconWrapper>
+);
+
+// Globe / Мир вокруг нас
+export const ChildGlobe = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+    <ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" strokeWidth="1.3" />
+    <path d="M3 12h18" stroke="currentColor" strokeWidth="1.3" />
+    <path d="M4 7h16M4 17h16" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
+
+// Book / Скорочтение
+export const ChildBook = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M4 4c0 0 3-1 8 1v16c-5-2-8-1-8-1V4z" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <path d="M20 4c0 0-3-1-8 1v16c5-2 8-1 8-1V4z" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <path d="M7 8h2M7 11h3M7 14h2" stroke="currentColor" strokeWidth="1.2" />
+    <path d="M15 8h2M14 11h3M15 14h2" stroke="currentColor" strokeWidth="1.2" />
+  </IconWrapper>
+);
+
+// Graduation cap / Подготовка к школе
+export const ChildGraduation = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <path d="M2 9l10-5 10 5-10 5-10-5z" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <path d="M6 11v6c0 2 3 3 6 3s6-1 6-3v-6" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M20 9v8" stroke="currentColor" strokeWidth="1.8" />
+    <circle cx="20" cy="18" r="1.5" fill="currentColor" />
+  </IconWrapper>
+);
+
+// Rhythm / Логоритмика
+export const ChildRhythm = ({ className, size = 24 }: ChildIconProps) => (
+  <IconWrapper className={className} size={size}>
+    <circle cx="8" cy="6" r="2" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M8 8v4" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M5 11c1 0.5 2 1 3 1s2-0.5 3-1" stroke="currentColor" strokeWidth="1.3" />
+    <path d="M6 12l-2 8M10 12l2 8" stroke="currentColor" strokeWidth="1.5" />
+    <ellipse cx="17" cy="18" rx="3" ry="2.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M20 18V6" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M20 6c-1 0-3 1-3 3" stroke="currentColor" strokeWidth="1.3" />
+    <path d="M14 10h3M14 13h2" stroke="currentColor" strokeWidth="1" />
+  </IconWrapper>
+);
