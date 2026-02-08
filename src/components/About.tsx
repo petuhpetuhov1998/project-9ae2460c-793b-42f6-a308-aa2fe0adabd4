@@ -54,7 +54,7 @@ const bentoFeatures = [
 const statsInfo = [
   { Icon: ChildHome, value: '270 м²', label: 'площадь садика' },
   { Icon: ChildShield, value: '24/7', label: 'пультовая охрана' },
-  { Icon: ChildVideoCamera, value: 'HD', label: 'видеонаблюдение' },
+  { Icon: ChildVideoCamera, value: 'Проф.', label: 'видеонаблюдение' },
 ];
 
 const zones = [
