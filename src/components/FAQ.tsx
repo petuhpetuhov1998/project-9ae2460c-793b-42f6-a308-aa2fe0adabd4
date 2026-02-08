@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'Есть ли перерасчёт за пропущенные дни?',
-    answer: 'Да, мы делаем перерасчёт при болезни (от 3 дней по справке) и при отпуске (по заявлению, до 14 дней в году). Подробности в разделе «Перерасчёты».',
+    answer: 'Да! Полдня — 300 ₽/день, полный день — 500 ₽/день. Перерасчёт идёт в счёт следующего месяца при болезни (нужна справка) или отпуске (заявление за 2 недели). Подробности ниже.',
   },
   {
     question: 'Как вы информируете родителей о ребёнке?',
@@ -106,28 +106,43 @@ const FAQ = () => {
                   </h3>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <ScrollReveal animation="fade-right" delay={300}>
-                    <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1 h-full">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500/20 to-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-foreground">
-                        <ChildHospital size={24} />
+                <div className="space-y-6">
+                  {/* Half day subscription */}
+                  <ScrollReveal animation="fade-up" delay={300}>
+                    <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-accent/20 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform text-foreground">
+                          <ChildHospital size={24} />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-foreground">Абонемент «Полдня»</h4>
+                          <p className="text-primary font-bold">300 ₽ / день</p>
+                        </div>
                       </div>
-                      <h4 className="font-bold text-foreground mb-3">По болезни</h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        Перерасчёт от 3 пропущенных дней при наличии медицинской справки. 
-                        Сумма рассчитывается по формуле: стоимость абонемента / 22 × количество пропущенных дней.
+                        Перерасчёт осуществляется в счёт оплаты за следующий месяц за пропущенные дни по болезни 
+                        (при предоставлении справки с указанием периода и характера заболевания) или в случае отпуска 
+                        (заявление за 2 недели до отпуска).
                       </p>
                     </div>
                   </ScrollReveal>
-                  <ScrollReveal animation="fade-left" delay={400}>
-                    <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1 h-full">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky/20 to-sage/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-foreground">
-                        <ChildBeach size={24} />
+
+                  {/* Full day subscription */}
+                  <ScrollReveal animation="fade-up" delay={400}>
+                    <div className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sage/20 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform text-foreground">
+                          <ChildBeach size={24} />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-foreground">Абонемент «Полный день»</h4>
+                          <p className="text-primary font-bold">500 ₽ / день</p>
+                        </div>
                       </div>
-                      <h4 className="font-bold text-foreground mb-3">По отпуску</h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        До 14 дней в году по заявлению родителей (подаётся минимум за 5 рабочих дней). 
-                        Перерасчёт производится в следующем месяце.
+                        Перерасчёт осуществляется в счёт оплаты за следующий месяц за пропущенные дни по болезни 
+                        (при предоставлении справки с указанием периода и характера заболевания) или в случае отпуска 
+                        (заявление за 2 недели до отпуска).
                       </p>
                     </div>
                   </ScrollReveal>
