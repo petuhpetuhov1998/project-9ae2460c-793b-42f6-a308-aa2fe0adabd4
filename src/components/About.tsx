@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Heart, MessageCircle } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import { 
   ChildGiraffe, 
@@ -64,51 +63,7 @@ const zones = [
   'Спортивный уголок',
 ];
 
-// Animated counter hook
-const useCountUp = (end: number, duration: number = 2000, startOnView: boolean = true) => {
-  const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!startOnView) {
-      animateCount();
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-          animateCount();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end, hasStarted]);
-
-  const animateCount = () => {
-    const startTime = Date.now();
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(easeOutQuart * end));
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-  };
-
-  return { count, ref };
-};
-
 const About = () => {
-  const { count: graduatesCount, ref: graduatesRef } = useCountUp(150);
-  const { count: yearsCount, ref: yearsRef } = useCountUp(8);
-
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       {/* Background decorations */}
@@ -243,19 +198,15 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Stats at bottom */}
-              <div className="flex gap-6 mt-6 pt-6 border-t border-border/30">
-                <div ref={graduatesRef}>
-                  <span className="text-3xl font-monly font-bold bg-gradient-to-r from-primary to-sage bg-clip-text text-transparent">
-                    {graduatesCount}+
-                  </span>
-                  <p className="text-xs text-muted-foreground">выпускников</p>
+              {/* Info badges at bottom */}
+              <div className="flex flex-wrap gap-3 mt-6 pt-6 border-t border-border/30">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage/10 border border-sage/20">
+                  <Heart className="w-4 h-4 text-primary" />
+                  <span className="text-sm text-foreground">Забота и любовь</span>
                 </div>
-                <div ref={yearsRef}>
-                  <span className="text-3xl font-monly font-bold bg-gradient-to-r from-primary to-sage bg-clip-text text-transparent">
-                    {yearsCount}
-                  </span>
-                  <p className="text-xs text-muted-foreground">лет работы</p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-accent/10 border border-amber-accent/20">
+                  <MessageCircle className="w-4 h-4 text-amber-accent" />
+                  <span className="text-sm text-foreground">Ежедневные отчёты</span>
                 </div>
               </div>
 

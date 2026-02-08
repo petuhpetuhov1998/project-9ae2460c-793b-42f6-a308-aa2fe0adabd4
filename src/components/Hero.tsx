@@ -132,20 +132,22 @@ const Hero = () => {
             </div>
 
             {/* Trust indicators */}
-            <div className="animate-slide-up delay-400 flex items-center gap-6 pt-4">
-              <div className="flex -space-x-3">
-                {[ChildBaby, ChildGirl, ChildBoy, ChildToddler].map((Icon, i) => (
-                  <div 
-                    key={i} 
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-sage border-2 border-white flex items-center justify-center text-white"
-                  >
-                    <Icon size={20} />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground">150+ счастливых выпускников</p>
-                <p className="text-xs text-muted-foreground">за 7 лет работы</p>
+            <div className="animate-slide-up delay-400 flex items-center gap-4 pt-4">
+              <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-sage/20 to-primary/10 border border-white/50">
+                <div className="flex -space-x-2">
+                  {[ChildBaby, ChildGirl, ChildBoy].map((Icon, i) => (
+                    <div 
+                      key={i} 
+                      className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-sage border-2 border-white flex items-center justify-center text-white"
+                    >
+                      <Icon size={16} />
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Ежедневные фото/видео отчёты</p>
+                  <p className="text-xs text-muted-foreground">Вы всегда в курсе дня малыша</p>
+                </div>
               </div>
             </div>
           </div>
