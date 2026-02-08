@@ -51,7 +51,7 @@ const bentoFeatures = [
 
 // Stats for the bottom info block
 const statsInfo = [
-  { Icon: ChildHome, value: 'Комфорт', label: 'современное помещение' },
+  { Icon: ChildHome, value: '270 м²', label: 'площадь садика' },
   { Icon: ChildShield, value: '24/7', label: 'пультовая охрана' },
 ];
 

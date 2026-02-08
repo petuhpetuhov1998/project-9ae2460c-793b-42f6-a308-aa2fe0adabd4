@@ -20,8 +20,8 @@ const Hero = () => {
     },
     { 
       icon: Maximize, 
-      title: 'Индивидуальный подход', 
-      desc: 'До 12 детей в группе',
+      title: '270 м²', 
+      desc: 'Просторное помещение',
       color: 'from-primary to-sage'
     },
   ];
