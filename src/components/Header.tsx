@@ -97,7 +97,7 @@ const Header = () => {
                   className="flex items-center gap-2 font-semibold px-4"
                 >
                   <Phone className="w-4 h-4 text-primary" />
-                  +7 (3452) 00-00-00
+                  +7 (3452) XXX-XX-XX
                 </a>
                 <LiquidButton 
                   size="default"

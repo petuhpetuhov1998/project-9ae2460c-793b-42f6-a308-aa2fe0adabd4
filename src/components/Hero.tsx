@@ -8,8 +8,8 @@ const Hero = () => {
   const advantages = [
     { 
       icon: ChefHat, 
-      title: 'Домашняя кухня', 
-      desc: '5-разовое питание с любовью',
+      title: 'Своя кухня', 
+      desc: '5-разовое питание, меню для аллергиков',
       color: 'from-amber-accent to-primary'
     },
     { 
