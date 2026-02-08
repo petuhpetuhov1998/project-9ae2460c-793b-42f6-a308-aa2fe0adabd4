@@ -153,13 +153,13 @@ const Contact = () => {
                 <div className="relative bg-gradient-to-br from-sage to-primary rounded-2xl p-6 text-white shadow-elevated">
                   <h3 className="text-xl font-bold mb-6">Контактная информация</h3>
                   <div className="space-y-5">
-                    <a href="tel:+73452000000" className="flex items-center gap-4 hover:opacity-80 transition-opacity group">
+                    <a href="tel:+7345200000" className="flex items-center gap-4 hover:opacity-80 transition-opacity group">
                       <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div>
                         <p className="text-sm text-white/70">Телефон</p>
-                        <p className="font-semibold text-lg">+7 (3452) 00-00-00</p>
+                        <p className="font-semibold text-lg">+7 (3452) XXX-XX-XX</p>
                       </div>
                     </a>
                     <div className="flex items-center gap-4">
@@ -168,7 +168,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm text-white/70">Адрес</p>
-                        <p className="font-semibold">г. Тюмень, ул. Примерная, 123</p>
+                        <p className="font-semibold">г. Тюмень, ул. Медовая, 16</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
