@@ -90,7 +90,7 @@ const Header = () => {
               <div className="flex flex-col gap-3 pt-4 mt-4 border-t border-border/50">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground px-4">
                   <Clock className="w-4 h-4 text-primary" />
-                  <span>7:30 – 18:00 (будни)</span>
+                  <span>7:30 – 18:30 (будни)</span>
                 </div>
                 <a 
                   href="tel:+73452000000" 

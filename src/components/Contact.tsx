@@ -177,7 +177,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm text-white/70">Режим работы</p>
-                        <p className="font-semibold">Пн-Пт: 7:30 – 18:00</p>
+                        <p className="font-semibold">Пн-Пт: 7:30 – 18:30</p>
                       </div>
                     </div>
                   </div>
