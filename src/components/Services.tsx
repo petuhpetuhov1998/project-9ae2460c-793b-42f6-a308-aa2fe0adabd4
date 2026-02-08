@@ -14,7 +14,7 @@ import {
 const subscriptions = [
   {
     title: 'Полдня',
-    price: '18 000',
+    price: '20 000',
     hours: '7:30 – 12:30',
     features: [
       'Детская йога — 2 раза в неделю',
@@ -30,7 +30,7 @@ const subscriptions = [
   },
   {
     title: 'Полный день',
-    price: '28 000',
+    price: '30 000',
     hours: '7:30 – 18:30',
     popular: true,
     features: [
