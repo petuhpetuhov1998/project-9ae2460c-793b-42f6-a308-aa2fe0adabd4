@@ -10,7 +10,7 @@ import { ChildHospital, ChildBeach } from '@/components/ui/child-icons';
 
 const faqs = [
   {
-    question: 'Какой возраст детей вы принимаете?',
+    question: 'С какого возраста можно привести ребёнка?',
     answer: 'Мы принимаем детей от 1,5 лет. Достаточно, чтобы ребёнок умел ходить — всему остальному мы научим сами!',
   },
   {
