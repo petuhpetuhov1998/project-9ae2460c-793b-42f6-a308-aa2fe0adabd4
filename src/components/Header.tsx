@@ -93,11 +93,11 @@ const Header = () => {
                   <span>7:30 – 18:30 (будни)</span>
                 </div>
                 <a 
-                  href="tel:+73452000000" 
+                  href="tel:+79324759888" 
                   className="flex items-center gap-2 font-semibold px-4"
                 >
                   <Phone className="w-4 h-4 text-primary" />
-                  +7 (3452) XXX-XX-XX
+                  +7 (932) 475-98-88
                 </a>
                 <LiquidButton 
                   size="default"

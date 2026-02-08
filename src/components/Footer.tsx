@@ -115,13 +115,13 @@ const Footer = () => {
               <h4 className="font-bold mb-6 text-lg">Контакты</h4>
               <ul className="space-y-4 text-sm">
                 <li>
-                  <a href="tel:+7345200000" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <a href="tel:+79324759888" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
                     <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
                       <p className="text-xs text-white/50">Телефон</p>
-                      <p className="font-medium text-white">+7 (3452) XXX-XX-XX</p>
+                      <p className="font-medium text-white">+7 (932) 475-98-88</p>
                     </div>
                   </a>
                 </li>
