@@ -4,19 +4,19 @@ import ScrollReveal from './ScrollReveal';
 const securityFeatures = [
   {
     icon: Video,
-    title: 'Видеонаблюдение 24/7',
-    description: 'Камеры установлены во всех помещениях. Запись ведётся круглосуточно.',
+    title: 'Профессиональное видеонаблюдение',
+    description: 'Камеры установлены во всех помещениях. Полное покрытие территории.',
     gradient: 'from-primary/20 to-sage/20',
   },
   {
-    icon: Camera,
-    title: 'Ежедневные фотоотчёты',
-    description: 'Родители получают фото и видео о занятиях ребёнка в закрытом чате.',
+    icon: Bell,
+    title: 'Пультовая охрана 24/7',
+    description: 'Круглосуточная охрана с выводом на пульт. Мгновенное реагирование.',
     gradient: 'from-sage/20 to-emerald-500/20',
   },
   {
     icon: DoorOpen,
-    title: 'Видеодомофон',
+    title: 'Вход по видеодомофону',
     description: 'Вход только по звонку. Мы видим каждого посетителя перед открытием двери.',
     gradient: 'from-amber-accent/20 to-primary/20',
   },
@@ -27,15 +27,15 @@ const securityFeatures = [
     gradient: 'from-primary/20 to-amber-accent/20',
   },
   {
-    icon: ShieldCheck,
-    title: 'Безопасная среда',
-    description: 'Закруглённые углы мебели, экологичные материалы, регулярная дезинфекция.',
+    icon: Camera,
+    title: 'Ежедневные фотоотчёты',
+    description: 'Родители получают фото и видео о занятиях ребёнка в закрытом чате.',
     gradient: 'from-sage/20 to-sky/20',
   },
   {
-    icon: Bell,
-    title: 'Экстренная связь',
-    description: 'Мгновенное оповещение родителей о любых нештатных ситуациях.',
+    icon: ShieldCheck,
+    title: 'Безопасная среда',
+    description: 'Закруглённые углы мебели, экологичные материалы, регулярная дезинфекция.',
     gradient: 'from-sky/20 to-primary/20',
   },
 ];
