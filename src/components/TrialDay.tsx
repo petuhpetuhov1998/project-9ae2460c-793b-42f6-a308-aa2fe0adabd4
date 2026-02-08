@@ -14,6 +14,7 @@ import {
   Sparkles,
   CheckCircle2
 } from "lucide-react";
+import trialDayBg from "@/assets/trial-day-bg.jpg";
 
 const TrialDay = () => {
   const scheduleItems = [
@@ -48,10 +49,12 @@ const TrialDay = () => {
 
   return (
     <section id="trial" className="py-20 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-cream-50/30 to-white" />
-      <div className="absolute top-20 left-10 w-64 h-64 bg-peach-200/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-sage-200/20 rounded-full blur-3xl" />
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${trialDayBg})` }}
+      />
+      <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
       
       {/* Floating decorative elements */}
       <motion.div 
@@ -92,7 +95,7 @@ const TrialDay = () => {
               
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-peach-100 to-peach-200 flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">🤗</span>
+                  <Heart className="w-7 h-7 text-peach-600" />
                 </div>
                 <div>
                   <h3 className="text-xl font-display font-semibold text-foreground mb-2">
@@ -198,7 +201,7 @@ const TrialDay = () => {
                 </div>
                 <div>
                   <h4 className="font-display font-semibold text-foreground mb-2 flex items-center gap-2">
-                    Фото и видео отчёты <span>🤗</span>
+                    Фото и видео отчёты
                   </h4>
                   <p className="text-sm text-muted-foreground">
                     Весь день будем отправлять фото и видео, чтобы вы понимали, 
