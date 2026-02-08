@@ -32,7 +32,8 @@ const scheduleData = {
     items: [
       { time: '15:30', activity: 'Творчество', detail: 'Кружки и занятия', icon: Palette },
       { time: '16:30', activity: 'Прогулка', detail: 'Игры на площадке', icon: TreePine },
-      { time: '17:30', activity: 'Уход домой', detail: 'До завтра!', icon: Sun },
+      { time: '17:30', activity: 'Ужин', detail: 'Вечернее питание', icon: Coffee },
+      { time: '18:00 – 18:30', activity: 'Уход домой', detail: 'До завтра!', icon: Sun },
     ]
   }
 };
