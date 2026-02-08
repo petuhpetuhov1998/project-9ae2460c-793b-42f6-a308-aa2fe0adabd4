@@ -54,7 +54,7 @@ const TrialDay = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${trialDayBg})` }}
       />
-      <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-br from-peach-100/70 via-cream-50/60 to-sage-100/70 backdrop-blur-[2px]" />
       
       {/* Floating decorative elements */}
       <motion.div 
