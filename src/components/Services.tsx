@@ -1,4 +1,4 @@
-import { Clock, Star, Sparkles, Crown, Zap } from 'lucide-react';
+import { Clock, Star, Sparkles, Crown, Zap, Gift } from 'lucide-react';
 import { RippleButton } from '@/components/ui/ripple-button';
 import ScrollReveal from './ScrollReveal';
 import { Tiles } from '@/components/ui/tiles';
@@ -6,9 +6,12 @@ import {
   ChildSpeech, 
   ChildDancing, 
   ChildPencil, 
-  ChildChess, 
   ChildPalette, 
-  ChildMusic 
+  ChildYoga,
+  ChildGlobe,
+  ChildRhythm,
+  ChildBook,
+  ChildGraduation
 } from '@/components/ui/child-icons';
 
 const subscriptions = [
@@ -47,13 +50,21 @@ const subscriptions = [
   },
 ];
 
+// Занятия, включённые в абонемент
+const includedClasses = [
+  { name: 'Логоритмика', desc: 'каждый день', Icon: ChildRhythm },
+  { name: 'Мир вокруг нас', desc: '2 раза в неделю', Icon: ChildGlobe },
+  { name: 'Детская йога', desc: '2 раза в неделю', Icon: ChildYoga },
+  { name: 'Творчество', desc: 'каждый день', Icon: ChildPalette },
+];
+
+// Дополнительные занятия (платные)
 const extraClasses = [
-  { name: 'Логопед', price: 'от 800 ₽', Icon: ChildSpeech },
-  { name: 'Танцы', price: 'от 600 ₽', Icon: ChildDancing },
-  { name: 'Каллиграфия', price: 'от 700 ₽', Icon: ChildPencil },
-  { name: 'Шахматы', price: 'от 600 ₽', Icon: ChildChess },
-  { name: 'Рисование', price: 'от 500 ₽', Icon: ChildPalette },
-  { name: 'Музыка', price: 'от 600 ₽', Icon: ChildMusic },
+  { name: 'Логопед', desc: 'индивидуально', Icon: ChildSpeech },
+  { name: 'Танцы', desc: 'эстрадный, современный, ритмика, ОФП', Icon: ChildDancing },
+  { name: 'Каллиграфия', desc: 'красивый почерк', Icon: ChildPencil },
+  { name: 'Скорочтение', desc: 'развитие памяти', Icon: ChildBook },
+  { name: 'Подготовка к школе', desc: 'комплексная программа', Icon: ChildGraduation },
 ];
 
 const CheckIcon = ({ className }: { className?: string }) => (
@@ -208,83 +219,71 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Extra Classes - Wave Style */}
+        {/* Included Classes */}
         <ScrollReveal animation="fade-up">
-          <div className="relative max-w-6xl mx-auto">
-            {/* Glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-sage/10 to-primary/10 rounded-[2.5rem] blur-2xl" />
+          <div className="relative max-w-5xl mx-auto mb-12">
+            <div className="relative backdrop-blur-xl bg-gradient-to-br from-sage/20 to-primary/10 rounded-3xl p-8 md:p-10 border border-white/50 shadow-elevated overflow-hidden">
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sage to-primary flex items-center justify-center">
+                  <Gift className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-monly font-bold text-foreground">
+                  Включено в абонемент
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                {includedClasses.map((cls, index) => (
+                  <ScrollReveal key={cls.name} animation="scale" delay={index * 80}>
+                    <div className="group flex flex-col items-center text-center p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/50 hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sage/30 to-primary/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <cls.Icon size={32} className="text-primary" />
+                      </div>
+                      <p className="font-monly font-bold text-foreground text-sm group-hover:text-primary transition-colors">
+                        {cls.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {cls.desc}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Extra Classes - Paid */}
+        <ScrollReveal animation="fade-up">
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute -inset-4 bg-gradient-to-r from-amber-accent/10 via-primary/5 to-amber-accent/10 rounded-[2.5rem] blur-2xl" />
             
-            <div className="relative backdrop-blur-xl bg-white/50 rounded-3xl p-8 md:p-12 border border-white/50 shadow-elevated overflow-hidden">
-              <div className="text-center mb-12">
-                <h3 className="text-2xl md:text-3xl font-monly font-bold text-foreground mb-3">
+            <div className="relative backdrop-blur-xl bg-white/50 rounded-3xl p-8 md:p-10 border border-white/50 shadow-elevated overflow-hidden">
+              <div className="text-center mb-8">
+                <h3 className="text-xl md:text-2xl font-monly font-bold text-foreground mb-2">
                   Дополнительные занятия
                 </h3>
-                <p className="text-muted-foreground max-w-xl mx-auto">
-                  Развивайте таланты ребёнка с нашими специалистами
+                <p className="text-sm text-muted-foreground">
+                  Оплачиваются отдельно от абонемента
                 </p>
               </div>
               
-              {/* Wave container */}
-              <div className="relative">
-                {/* Icons in wave pattern */}
-                <div className="flex flex-wrap md:flex-nowrap justify-center items-start gap-6 md:gap-4 relative">
-                  {/* Curved dashed line - positioned behind icons */}
-                  <svg 
-                    className="absolute left-[8%] right-[8%] top-10 md:top-12 w-[84%] h-12 pointer-events-none hidden md:block z-0"
-                    viewBox="0 0 1000 50"
-                    preserveAspectRatio="none"
-                  >
-                    <path 
-                      d="M0,25 Q83,45 166,25 T333,25 T500,25 T666,25 T833,25 T1000,25" 
-                      fill="none" 
-                      stroke="hsl(var(--foreground) / 0.2)" 
-                      strokeWidth="2" 
-                      strokeDasharray="8 6"
-                    />
-                  </svg>
-                  
-                  {extraClasses.map((cls, index) => {
-                    // Create wave effect with different vertical positions
-                    const waveOffsets = [0, 20, -5, 15, -10, 5];
-                    const offset = waveOffsets[index % waveOffsets.length];
-                    
-                    return (
-                      <ScrollReveal 
-                        key={cls.name} 
-                        animation="scale" 
-                        delay={index * 80}
-                        className="flex-1 min-w-[140px] md:min-w-0 relative z-10"
-                      >
-                        <div 
-                          className="group flex flex-col items-center"
-                          style={{ paddingTop: `${Math.max(0, offset)}px` }}
-                        >
-                          {/* Circle with icon */}
-                          <div className="relative">
-                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white border-2 border-border/30 shadow-soft flex items-center justify-center group-hover:shadow-card group-hover:border-primary/30 transition-all duration-300 group-hover:scale-110">
-                              <cls.Icon 
-                                size={36} 
-                                className="text-amber-accent group-hover:text-primary transition-colors duration-300" 
-                              />
-                            </div>
-                            {/* Subtle glow on hover */}
-                            <div className="absolute inset-0 rounded-full bg-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          </div>
-                          
-                          {/* Label */}
-                          <div className="mt-4 text-center">
-                            <p className="font-monly font-bold text-foreground text-sm md:text-base group-hover:text-primary transition-colors">
-                              {cls.name}
-                            </p>
-                            <p className="text-xs md:text-sm text-muted-foreground mt-1">
-                              {cls.price}
-                            </p>
-                          </div>
-                        </div>
-                      </ScrollReveal>
-                    );
-                  })}
-                </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5">
+                {extraClasses.map((cls, index) => (
+                  <ScrollReveal key={cls.name} animation="scale" delay={index * 60}>
+                    <div className="group flex flex-col items-center text-center p-4 rounded-2xl bg-white/70 backdrop-blur-sm border border-border/30 hover:shadow-card hover:border-amber-accent/30 transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white border-2 border-border/20 shadow-soft flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-amber-accent/40 transition-all">
+                        <cls.Icon size={28} className="text-amber-accent group-hover:text-primary transition-colors" />
+                      </div>
+                      <p className="font-monly font-bold text-foreground text-sm group-hover:text-primary transition-colors">
+                        {cls.name}
+                      </p>
+                      <p className="text-[11px] text-muted-foreground mt-1 leading-tight">
+                        {cls.desc}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
               </div>
             </div>
           </div>
