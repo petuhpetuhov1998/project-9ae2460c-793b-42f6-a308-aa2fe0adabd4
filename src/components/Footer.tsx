@@ -140,7 +140,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <p className="text-xs text-white/50">Режим работы</p>
-                    <p className="font-medium text-white">Пн-Пт: 7:30 – 18:00</p>
+                    <p className="font-medium text-white">Пн-Пт: 7:30 – 18:30</p>
                   </div>
                 </li>
               </ul>
