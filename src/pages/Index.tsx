@@ -5,6 +5,7 @@ import Services from '@/components/Services';
 import Schedule from '@/components/Schedule';
 import Security from '@/components/Security';
 import Testimonials from '@/components/Testimonials';
+import Gallery from '@/components/Gallery';
 import Birthday from '@/components/Birthday';
 import TrialDay from '@/components/TrialDay';
 import FAQ from '@/components/FAQ';
@@ -22,6 +23,7 @@ const Index = () => {
         <Schedule />
         <Security />
         <Testimonials />
+        <Gallery />
         <Birthday />
         <TrialDay />
         <FAQ />
