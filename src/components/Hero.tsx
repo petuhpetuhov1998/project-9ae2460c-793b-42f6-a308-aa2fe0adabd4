@@ -1,6 +1,6 @@
 import React from "react";
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
-import heroChild from '@/assets/hero-child.jpg';
+import heroChild from '@/assets/hero-child-playing.jpg';
 import logo from '@/assets/logo.png';
 import { ChildBaby, ChildGirl, ChildBoy, ChildToddler } from '@/components/ui/child-icons';
 import { ChefHat, Shield, Maximize } from "lucide-react";
