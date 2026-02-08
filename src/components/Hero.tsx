@@ -9,19 +9,19 @@ const Hero = () => {
     { 
       icon: ChefHat, 
       title: 'Домашняя кухня', 
-      desc: '5-разовое питание',
+      desc: '5-разовое питание с любовью',
       color: 'from-amber-accent to-primary'
     },
     { 
       icon: Shield, 
-      title: 'Безопасность', 
-      desc: 'Видеонаблюдение 24/7',
+      title: 'Пультовая охрана', 
+      desc: 'Круглосуточная безопасность',
       color: 'from-sage to-primary'
     },
     { 
       icon: Maximize, 
-      title: '200 м²', 
-      desc: 'Просторное помещение',
+      title: 'Индивидуальный подход', 
+      desc: 'До 12 детей в группе',
       color: 'from-primary to-sage'
     },
   ];
@@ -108,8 +108,8 @@ const Hero = () => {
                 {' '}становится волшебным
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
-                Создаём тёплую атмосферу для развития и счастья вашего ребёнка. 
-                Индивидуальный подход к каждому малышу от 1.5 до 6 лет.
+                Уютная, безопасная и любящая атмосфера, где каждый ребёнок чувствует себя особенным. 
+                Индивидуальный подход к каждому малышу от 1,5 лет.
               </p>
             </div>
 
@@ -173,13 +173,13 @@ const Hero = () => {
 
               {/* Floating age badge */}
               <div className="absolute -top-4 -right-4 bg-white rounded-2xl px-5 py-3 shadow-xl border border-border">
-                <p className="text-sm font-bold text-foreground">1.5 — 6 лет</p>
-                <p className="text-xs text-muted-foreground">возраст детей</p>
+                <p className="text-sm font-bold text-foreground">от 1,5 лет</p>
+                <p className="text-xs text-muted-foreground">принимаем детей</p>
               </div>
 
               {/* Floating group badge */}
               <div className="absolute -bottom-4 -left-4 bg-gradient-to-br from-primary to-sage rounded-2xl px-5 py-3 shadow-xl">
-                <p className="text-sm font-bold text-white">8-12 детей</p>
+                <p className="text-sm font-bold text-white">до 12 детей</p>
                 <p className="text-xs text-white/80">в группе</p>
               </div>
             </div>
