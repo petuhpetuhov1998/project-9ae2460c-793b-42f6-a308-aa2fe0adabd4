@@ -6,37 +6,31 @@ const securityFeatures = [
     icon: DoorOpen,
     title: 'Вход по видеодомофону',
     description: 'Доступ только после визуального подтверждения личности сотрудниками садика.',
-    gradient: 'from-amber-accent/20 to-primary/20',
   },
   {
     icon: Video,
     title: 'Видеонаблюдение по периметру',
     description: 'Камеры установлены по всему периметру — происходящее видно со всех углов. Все записи хранятся на сервере.',
-    gradient: 'from-primary/20 to-sage/20',
   },
   {
     icon: Bell,
     title: 'Охрана ЧОП + тревожная кнопка',
     description: 'Садик охраняется частным охранным предприятием. Установлена тревожная кнопка для экстренных ситуаций.',
-    gradient: 'from-sage/20 to-emerald-500/20',
   },
   {
     icon: Users,
     title: '2 воспитателя + няня в группе',
     description: 'Весь персонал имеет высшее педагогическое образование. Забрать ребёнка могут только родители или доверенные лица.',
-    gradient: 'from-primary/20 to-amber-accent/20',
   },
   {
     icon: Camera,
     title: 'Ежедневные фотоотчёты',
     description: 'Родители получают фото и видео о занятиях ребёнка в закрытом чате.',
-    gradient: 'from-sage/20 to-sky/20',
   },
   {
     icon: ShieldCheck,
     title: 'Коворкинг для родителей',
     description: 'Уютное пространство с Wi-Fi, где родители могут подождать или поработать, пока ребёнок на занятиях.',
-    gradient: 'from-sky/20 to-primary/20',
   },
 ];
 
@@ -74,8 +68,8 @@ const Security = () => {
                 <div className="absolute -inset-2 bg-gradient-to-r from-sage/30 to-primary/30 rounded-2xl blur-xl opacity-60" />
                 <div className="relative bg-white/70 backdrop-blur-xl rounded-2xl p-6 border border-white/50 shadow-card">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sage/30 to-primary/20 flex items-center justify-center flex-shrink-0">
-                      <ShieldCheck className="w-6 h-6 text-sage" />
+                    <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
+                      <ShieldCheck className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <p className="font-bold text-foreground mb-2">Спокойствие для родителей</p>
@@ -96,12 +90,12 @@ const Security = () => {
               <ScrollReveal key={feature.title} animation="scale" delay={index * 80}>
                 <div className="group relative h-full">
                   <div className="relative bg-white/70 backdrop-blur-xl rounded-2xl p-5 border border-white/50 shadow-soft hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 h-full">
-                    {/* Gradient bg on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    {/* Subtle bg on hover */}
+                    <div className="absolute inset-0 bg-primary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     <div className="relative">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <feature.icon className="w-6 h-6 text-foreground" />
+                      <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <feature.icon className="w-6 h-6 text-primary" />
                       </div>
                       <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                         {feature.title}
