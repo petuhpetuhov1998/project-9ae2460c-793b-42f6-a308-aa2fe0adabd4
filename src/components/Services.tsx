@@ -104,8 +104,8 @@ const PricingCard = ({
       {/* Icon */}
       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
         popular 
-          ? 'bg-gradient-to-br from-primary to-sage' 
-          : 'bg-gradient-to-br from-sage/30 to-primary/20'
+          ? 'bg-primary' 
+          : 'bg-primary/15'
       }`}>
         <Icon className={`w-8 h-8 ${popular ? 'text-white' : 'text-primary'}`} />
       </div>
@@ -224,7 +224,7 @@ const Services = () => {
           <div className="relative max-w-5xl mx-auto mb-12">
             <div className="relative backdrop-blur-xl bg-gradient-to-br from-sage/20 to-primary/10 rounded-3xl p-8 md:p-10 border border-white/50 shadow-elevated overflow-hidden">
               <div className="flex items-center justify-center gap-3 mb-8">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sage to-primary flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
                   <Gift className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-monly font-bold text-foreground">
@@ -236,7 +236,7 @@ const Services = () => {
                 {includedClasses.map((cls, index) => (
                   <ScrollReveal key={cls.name} animation="scale" delay={index * 80}>
                     <div className="group flex flex-col items-center text-center p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/50 hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sage/30 to-primary/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                         <cls.Icon size={32} className="text-primary" />
                       </div>
                       <p className="font-monly font-bold text-foreground text-sm group-hover:text-primary transition-colors">

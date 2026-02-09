@@ -104,8 +104,8 @@ const About = () => {
           <ScrollReveal animation="fade-up" delay={0} className="lg:col-span-1 lg:row-span-2">
             <div className="group relative h-full min-h-[320px] bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/50 shadow-card hover:shadow-elevated transition-all duration-500 overflow-hidden">
               {/* Animal icon in corner */}
-              <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-gradient-to-br from-sage/30 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <ChildGiraffe size={40} className="text-amber-accent" />
+              <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <ChildGiraffe size={40} className="text-primary" />
               </div>
               
               <div className="relative mt-16">
@@ -127,8 +127,8 @@ const About = () => {
             <ScrollReveal key={feature.id} animation="fade-up" delay={(index + 1) * 100}>
               <div className="group relative h-full min-h-[200px] bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/50 shadow-card hover:shadow-elevated transition-all duration-500 overflow-hidden">
                 {/* Animal icon in corner */}
-                <div className="absolute top-4 right-4 w-14 h-14 rounded-full bg-gradient-to-br from-sage/30 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <feature.AnimalIcon size={32} className="text-amber-accent" />
+                <div className="absolute top-4 right-4 w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <feature.AnimalIcon size={32} className="text-primary" />
                 </div>
                 
                 <div className="relative mt-12">
@@ -159,8 +159,8 @@ const About = () => {
                     key={stat.label}
                     className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-5 py-3 border border-white/50 shadow-soft"
                   >
-                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center">
-                      <stat.Icon size={18} className="text-sage" />
+                    <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
+                      <stat.Icon size={18} className="text-primary" />
                     </div>
                     <span className="font-monly font-bold text-foreground">{stat.value}</span>
                     <span className="text-sm text-muted-foreground">{stat.label}</span>
@@ -190,8 +190,8 @@ const About = () => {
             {/* Right block - Fox card */}
             <div className="lg:col-span-2 relative bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/50 shadow-card overflow-hidden">
               {/* Fox icon */}
-              <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-gradient-to-br from-amber-accent/30 to-primary/20 flex items-center justify-center">
-                <ChildFox size={40} className="text-amber-accent" />
+              <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center">
+                <ChildFox size={40} className="text-primary" />
               </div>
 
               <div className="mt-14">
